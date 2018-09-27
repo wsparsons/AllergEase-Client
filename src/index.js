@@ -9,15 +9,14 @@ import registerServiceWorker from "./registerServiceWorker";
 // Set a property of store with the invocation of our exported store
 import store from "./store";
 import { Provider } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-// Import BrowserRouter as Router and Switch
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 ReactDOM.render(
   <Provider store={store()}>
     <Router>
       <Switch>
-        <Route path="/" component={App} />
+        <Route path="/" component={ App } />
       </Switch>
     </Router>
   </Provider>,

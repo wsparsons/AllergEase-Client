@@ -3,7 +3,7 @@ import rootReducer from './reducers'
 import logger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
-const reducers = combineReducers({ }),
+// const reducers = combineReducers({ }),
 
 export default() => {
   return createStore(
