@@ -1,23 +1,21 @@
 import React, { Component } from "react";
-import { Switch, Route, Redirect } from 'react-router-dom'
-import logo from "./logo.svg";
+import { Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
+import Nav from "./components/Nav";
+import Login from './components/Login'
 
 class App extends Component {
-
   render() {
     return (
-      <Switch>
-        <Route />
-        {/* <Route exact path ="/register" render={() => {
-          return <Register />
-        }} />
-        <Route exact path ="/login" render={() => {
-          return <Login />
-        }} />
-        <Redirect to="/login" /> */}
-      </Switch>
-
+      <div>
+          <Nav />
+          <Switch>
+            {/* <Route exact path="/" component={ Home } /> */}
+            <Route exact path="/login" component={ Login }/>
+            <Route exact path="/signup" />
+            <Redirect to="/login" />
+          </Switch>
+      </div>
     );
   }
 }
