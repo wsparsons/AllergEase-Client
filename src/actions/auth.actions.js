@@ -1,5 +1,4 @@
-import axios from "axios";
-import authModel from '../models/auth.model'
+import authModel from "../models/auth.model";
 
 export const USER_LOGIN_PENDING = "USER_LOGIN_PENDING";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
@@ -15,14 +14,17 @@ export const userLogin = ({ email, password }) => {
     try {
       dispatch({ type: USER_LOGIN_PENDING });
 
-      let response = await authModel.login(email, password)
+      let response = await authModel.login(email, password);
       let token = response.data.token;
+      let id = response.data.user.id
 
-      if(token){
-        localStorage.setItem(process.env.TOKEN_NAME, token)
+      if (token) {
+        localStorage.setItem(process.env.REACT_APP_TOKEN_NAME, token);
+        localStorage.setItem(process.env.REACT_APP_USER_ID, id)
+
         dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data.user });
       } else {
-        dispatch({ type: USER_LOGIN_FAILED, payload: response.data })
+        dispatch({ type: USER_LOGIN_FAILED, payload: response.data });
       }
     } catch (err) {
       dispatch({ type: USER_LOGIN_FAILED, payload: err });

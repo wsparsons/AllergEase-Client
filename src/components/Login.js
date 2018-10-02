@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { userLogin } from "../actions/auth.actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -12,6 +11,7 @@ import {
   Message,
   Segment
 } from "semantic-ui-react";
+import { userLogin } from "../actions/auth.actions";
 
 const mapStateToProps = state => ({
   showLoginError: state.auth.showLoginError
@@ -39,14 +39,16 @@ class Login extends Component {
     event.preventDefault();
     this.props.userLogin(this.state);
 
-    if (this.props.isLoggedIn && !this.props.showLoginError) {
-      this.props.history.push("/search");
-    } else {
-      this.setState({
-        email: "",
-        password: ""
-      });
-    }
+    // if (this.props.isLoggedIn && !this.props.showLoginError) {
+    //   this.props.history.push("/search");
+    // } else {
+
+    this.setState({
+      email: "",
+      password: ""
+    });
+    
+    // }
   };
 
   render() {

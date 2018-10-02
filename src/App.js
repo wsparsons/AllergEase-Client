@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import "./App.css";
+import { connect } from "react-redux";
 import NavBar from "./components/NavBar";
 import Login from "./components/Login";
-import { connect } from "react-redux";
+import Search from './components/Search'
 
 
 const mapStateToProps = state => ({
@@ -28,7 +29,7 @@ class App extends Component {
               return <Login />;
             }}
           />
-          <Route exact path="/search" component={ NavBar } /> 
+          <Route exact path="/search" component={ Search } /> 
           {/* <Route exact path="/signup" /> */}
           <Redirect to="/login" />
         </Switch>
