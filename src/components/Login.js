@@ -13,8 +13,9 @@ import {
 } from "semantic-ui-react";
 import { userLogin } from "../actions/auth.actions";
 
-const mapStateToProps = state => ({
-  showLoginError: state.auth.showLoginError
+const mapStateToProps = ({ auth }) => ({
+  // showLoginError: state.auth.showLoginError
+  auth
 });
 
 const mapDispatchToProps = dispatch =>
@@ -39,16 +40,11 @@ class Login extends Component {
     event.preventDefault();
     this.props.userLogin(this.state);
 
-    // if (this.props.isLoggedIn && !this.props.showLoginError) {
-    //   this.props.history.push("/search");
-    // } else {
-
     this.setState({
       email: "",
       password: ""
     });
     
-    // }
   };
 
   render() {
@@ -90,7 +86,7 @@ class Login extends Component {
               </Button>
             </Segment>
           </Form>
-          {this.props.showLoginError && (
+          {this.props.auth.showLoginError && (
             <Message
               warning
               header="Could you check something!"

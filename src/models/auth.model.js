@@ -20,13 +20,19 @@ const signup = async (first_name, last_name, email, password) => {
 
 const verify = async () => {
   let token = localStorage.getItem("NutriScan Token");
-
   if (!token) return false;
-
+  
   try {
-    const response = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/api/users`
+    const response = await axios(
+      `${process.env.REACT_APP_BASE_URL}/api/users/verify`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
     );
+    return response.data;
   } catch (err) {
     return false;
   }
