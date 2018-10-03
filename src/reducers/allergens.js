@@ -1,12 +1,17 @@
-import { GET_ALL_ALLERGENS } from '../actions/allergens'
+import { GET_ALL_ALLERGENS, GET_USER_ALLERGENS } from "../actions/allergens";
 
-const allergens = (state = [], { type, payload}) => {
-  switch (type) {
+let initialState = {
+  allAllergens: [],
+  userAllergens: []
+};
+
+export default (state = initialState, action) => {
+  switch (action.type) {
     case GET_ALL_ALLERGENS:
-      return payload;
-    default: 
+      return { ...state, allAllergens: action.payload };
+    case GET_USER_ALLERGENS:
+      return { ...state, userAllergens: action.payload };
+    default:
       return state;
   }
-}
-
-export default allergens 
+};

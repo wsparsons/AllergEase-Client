@@ -6,7 +6,7 @@ import {
   // USER_SIGNUP_SUCCESS,
   // USER_SIGNUP_FAILED,
   // USER_LOGOUT,
-  // USER_VERIFY
+  USER_VERIFY
 } from "../actions/auth.actions";
 
 let initialState = {
@@ -33,8 +33,8 @@ export default (state = initialState, action) => {
     //   return { ...state, isLoading: false, showSignupError: true };
     // case USER_LOGOUT:
     //   return { ...state, user: {} };
-    // case USER_VERIFY: 
-    //   return { ...state, isLoggedIn: true, user: action.payload}
+    case USER_VERIFY: 
+      return { ...state, isLoggedIn: true, user: action.payload}
 
     default:
       return state;

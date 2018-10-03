@@ -1,10 +1,14 @@
 import axios from 'axios'
 
-// Get All Allergens
-
 const getAllAllergens = async () => {
-  const response = await axios.get(`${process.env.BASE_URL}/allergens`)
+  const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/allergens`)
+  return response.data.response
+}
+
+const getUserAllergens = async (id) => {
+  const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/api/users/${id}/allergens`)
+  console.log("USER ALLERGENS!!!!",response)
   return response.data
 }
 
-export default { getAllAllergens }
+export default { getAllAllergens, getUserAllergens }
