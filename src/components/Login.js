@@ -7,16 +7,12 @@ import {
   Form,
   Grid,
   Header,
-  Image,
   Message,
   Segment
 } from "semantic-ui-react";
 import { userLogin } from "../actions/auth.actions";
 
-const mapStateToProps = ({ auth }) => ({
-  // showLoginError: state.auth.showLoginError
-  auth
-});
+const mapStateToProps = ({ auth }) => ({ auth });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ userLogin }, dispatch);
@@ -44,7 +40,6 @@ class Login extends Component {
       email: "",
       password: ""
     });
-    
   };
 
   render() {
@@ -102,9 +97,7 @@ class Login extends Component {
   }
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Login)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

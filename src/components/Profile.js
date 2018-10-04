@@ -3,22 +3,15 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Grid, Header, List, Button, Image } from "semantic-ui-react";
-import { getAllAllergens, getUserAllergens } from "../actions/allergens";
+import { getAllAllergens } from "../actions/allergens.action";
+import { getUserAllergens } from "../actions/userAllergens.action";
 import Allergens from "./Allergens";
+import UserAllergens from './UserAllergens'
 
-const mapStateToProps = ({ allergens, auth }) => ({ allergens, auth });
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ getAllAllergens, getUserAllergens }, dispatch);
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-  }
-
-  async componentDidMount () {
-    await this.props.getAllAllergens();
-    await this.props.getUserAllergens(this.props.auth.user.userId);
   }
 
   render() {
@@ -27,13 +20,16 @@ class Profile extends Component {
         <Grid.Row>
           <Grid.Column>
             <Header as="h2" color="teal" textAlign="center">
-              Select Your Allergen(s)
+              PROFILE
             </Header>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row centered>
-          <Grid.Column width={8}>
-            <Allergens allAllergens={this.props.allergens} />
+        <Grid.Row centered columns={2}>
+          <Grid.Column width={7}>
+            <Allergens />
+          </Grid.Column>
+          <Grid.Column width={7}>
+            <UserAllergens/>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -43,7 +39,7 @@ class Profile extends Component {
 
 export default withRouter(
   connect(
-    mapStateToProps,
-    mapDispatchToProps
+    null,
+    null
   )(Profile)
 );

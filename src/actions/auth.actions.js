@@ -6,7 +6,7 @@ export const USER_LOGIN_FAILED = "USER_LOGIN_FAILED";
 // export const USER_SIGNUP_PENDING = "USER_SIGNUP_PENDING";
 // export const USER_SIGNUP_SUCCESS = "USER_SIGNUP_SUCCESS";
 // export const USER_SIGNUP_FAILED = "USER_SIGNUP_FAILED";
-// export const USER_LOGOUT = "USER_LOGOUT";
+export const USER_LOGOUT = "USER_LOGOUT";
 export const USER_VERIFY = "USER_VERIFY";
 
 export const userLogin = ({ email, password }) => {
@@ -39,13 +39,8 @@ export const verify = () => {
   };
 };
 
-// export const verify = (response) => {
-//   return {
-//     type: USER_VERIFY,
-//     payload: response.user
-//   }
-// }
-
-export const logout = () => {
-  
-}
+export const userLogout = () => {
+  return async dispatch => {
+    dispatch({ type: USER_LOGOUT });
+  };
+};
