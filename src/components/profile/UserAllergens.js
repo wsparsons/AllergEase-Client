@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { List, Button, Segment, Label, Header } from "semantic-ui-react";
+import { List, Button, Segment, Label, Header, Icon } from "semantic-ui-react";
 import {
   getUserAllergens,
   removeUserAllergen
-} from "../actions/userAllergens.action";
+} from "../../actions/userAllergens.action";
 
 const mapStateToProps = ({ auth, allergens, userAllergens }) => ({
   auth,
@@ -32,8 +32,16 @@ class UserAllergens extends Component {
         return (
           <List.Item key={userAllergen.id}>
             <List.Content floated="right">
-              <Button color="red" onClick={() => this.onClick(userAllergen)}>
-                Remove
+              <Button
+                animated
+                basic
+                color="red"
+                onClick={() => this.onClick(userAllergen)}
+              >
+                <Button.Content visible>REMOVE</Button.Content>
+                <Button.Content hidden>
+                  <Icon name="remove" />
+                </Button.Content>
               </Button>
             </List.Content>
             <List.Header verticalalign="middle">
@@ -55,7 +63,7 @@ class UserAllergens extends Component {
       <Segment color="red">
         <Header as="h2" textAlign="center" color="teal">
           {this.props.auth.user.first_name}
-          's Allergen(s)
+          's List
         </Header>
         <List divided verticalalign="middle">
           {userAllergenList}

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import {
   Button,
   Form,
@@ -10,7 +9,7 @@ import {
   Message,
   Segment
 } from "semantic-ui-react";
-import { userLogin } from "../actions/auth.actions";
+import { userLogin } from "../../actions/auth.actions";
 
 const mapStateToProps = ({ auth }) => ({ auth });
 
@@ -51,13 +50,13 @@ class Login extends Component {
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="teal" textAlign="center">
-            Log-in to your account
+            Log In To Your Account
           </Header>
-          <Form size="large" onSubmit={this.onSubmit}>
+          <Form loading={this.props.auth.isLoading ? true : false} size="large" onSubmit={this.onSubmit}>
             <Segment stacked>
               <Form.Input
                 fluid
-                icon="user"
+                icon="mail"
                 iconPosition="left"
                 placeholder="E-mail address"
                 type="email"
@@ -88,9 +87,6 @@ class Login extends Component {
               content="Incorrect email or password."
             />
           )}
-          <Message>
-            New to NutriScan? <a href="#signup">Sign Up</a>
-          </Message>
         </Grid.Column>
       </Grid>
     );

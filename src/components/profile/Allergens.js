@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 // import { withRouter } from "react-router-dom";
-import { List, Button, Segment, Label, Header } from "semantic-ui-react";
-import { getAllAllergens } from "../actions/allergens.action";
+import { List, Button, Segment, Label, Header, Icon } from "semantic-ui-react";
+import { getAllAllergens } from "../../actions/allergens.action";
 import {
   getUserAllergens,
   addUserAllergen
-} from "../actions/userAllergens.action";
+} from "../../actions/userAllergens.action";
 
 const mapStateToProps = ({ auth, allergens, userAllergens }) => ({
   auth,
@@ -41,6 +41,8 @@ class Allergens extends Component {
         <List.Item key={allergen.id}>
           <List.Content floated="right">
             <Button
+              animated
+              basic
               color="green"
               disabled={
                 !!this.props.userAllergens.userAllergens.find(
@@ -49,7 +51,10 @@ class Allergens extends Component {
               }
               onClick={() => this.onClick(allergen)}
             >
-              Add
+              <Button.Content visible>ADD</Button.Content>
+              <Button.Content hidden>
+                <Icon name="arrow right" />
+              </Button.Content>
             </Button>
           </List.Content>
           <List.Header verticalalign="middle">
@@ -70,7 +75,7 @@ class Allergens extends Component {
     return (
       <Segment color="green">
         <Header as="h2" textAlign="center" color="teal">
-          Select Your Allergen(s)
+          Add Allergen(s)
         </Header>
         <List divided verticalalign="middle">
           {allergensList}
