@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {
-  Button,
   Container,
-  Icon,
   Menu,
   Responsive,
   Segment,
@@ -11,7 +9,8 @@ import {
 } from "semantic-ui-react";
 import HomepageHeading from "./HomepageHeading";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import MenuItemHome from "./shared/MenuItemHome";
 import MenuItemProfile from "./shared/MenuItemProfile";
 import MenuItemSearch from "./shared/MenuItemSearch";
 import MenuButtonLogout from "./shared/MenuButtonLogout";
@@ -54,16 +53,7 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item as={Link} to="/home" active>
-                  <Icon
-                    inverted
-                    color="black"
-                    name="barcode"
-                    style={{ marginRight: "0.5em" }}
-                  />
-                  Home
-                </Menu.Item>
-
+                <MenuItemHome />
                 {this.props.auth.isLoggedIn && <MenuItemProfile />}
                 {this.props.auth.isLoggedIn && <MenuItemSearch />}
 

@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import { Button, Container, Header, Icon } from "semantic-ui-react";
 import "./styles/styles.css";
 
-// mapStateToProps = ({ mobile }) => ({ mobile })
-
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header

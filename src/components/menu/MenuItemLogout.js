@@ -2,7 +2,7 @@ import React from "react";
 import { Menu, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { userLogout } from "../../../actions/auth.actions";
+import { userLogout } from "../../actions/auth.actions";
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ userLogout }, dispatch);

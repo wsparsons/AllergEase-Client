@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {
-  Button,
   Container,
   Icon,
   Menu,
@@ -11,8 +10,8 @@ import {
 } from "semantic-ui-react";
 import HomepageHeading from "./HomepageHeading";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
-import { bindActionCreators } from "redux";
+import { withRouter } from "react-router-dom";
+import MenuItemHome from "./shared/MenuItemHome";
 import MenuItemProfile from "./shared/MenuItemProfile";
 import MenuItemSearch from "./shared/MenuItemSearch";
 import MenuItemLogout from "./shared/MenuItemLogout";
@@ -52,15 +51,7 @@ class MobileContainer extends Component {
             vertical
             visible={this.state.sidebarOpened}
           >
-            <Menu.Item as="a" active>
-              <Icon
-                inverted
-                color="black"
-                name="barcode"
-                style={{ marginRight: "0.5em" }}
-              />
-              Home
-            </Menu.Item>
+            <MenuItemHome />
             {this.props.auth.isLoggedIn && <MenuItemProfile />}
             {this.props.auth.isLoggedIn && <MenuItemSearch />}
             {this.props.auth.isLoggedIn && <MenuItemLogout />}
