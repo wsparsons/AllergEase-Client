@@ -1,4 +1,4 @@
-import userAllergensModel from "../models/userAllergens.model";
+import userAllergensModel from "../models/userAllergens.models";
 
 export const GET_USER_ALLERGENS = "GET_USER_ALLERGENS";
 

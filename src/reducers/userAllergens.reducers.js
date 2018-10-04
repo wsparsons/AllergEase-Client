@@ -1,4 +1,4 @@
-import { GET_USER_ALLERGENS } from "../actions/userAllergens.action";
+import { GET_USER_ALLERGENS } from "../actions/userAllergens.actions";
 
 let initialState = {
   userAllergens: []

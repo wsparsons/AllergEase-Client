@@ -1,4 +1,4 @@
-import authModel from "../models/auth.model";
+import authModel from "../models/auth.models";
 
 export const USER_LOGIN_PENDING = "USER_LOGIN_PENDING";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";

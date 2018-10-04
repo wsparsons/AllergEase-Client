@@ -36,9 +36,8 @@ class App extends Component {
             <Route
               exact
               path="/home"
-              render={() => {
-                return <Home />;
-              }}
+              component={Home}
+             
             />
             <AuthenticatedRoute
               exact
@@ -46,10 +45,12 @@ class App extends Component {
               render={() => {
                 return <Search />;
               }}
+              
             />
             <AuthenticatedRoute
               exact
               path="/profile"
+            
               render={() => {
                 return <Profile />;
               }}

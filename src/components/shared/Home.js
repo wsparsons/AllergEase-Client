@@ -1,11 +1,15 @@
-import React, {Component } from 'react'
+import React, { Component } from "react";
+import HomepageLayout from "../responsive/HomepageLayout";
 
 class Home extends Component {
-  render(){
+  render() {
     return (
-      <div>Home Page</div>
-    )
+      <div>
+        home page
+        <HomepageLayout />
+      </div>
+    );
   }
 }
 
-export default Home
+export default Home;

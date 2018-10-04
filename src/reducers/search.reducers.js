@@ -2,7 +2,7 @@ import {
   POST_SEARCH_PENDING,
   POST_SEARCH_SUCCESS,
   POST_SEARCH_FAILED
-} from "../actions/search";
+} from "../actions/search.actions";
 
 let initialState = {
   searchResult: {

@@ -6,7 +6,7 @@ import { List, Button, Segment, Label, Header, Icon } from "semantic-ui-react";
 import {
   getUserAllergens,
   removeUserAllergen
-} from "../../actions/userAllergens.action";
+} from "../../actions/userAllergens.actions";
 
 const mapStateToProps = ({ auth, allergens, userAllergens }) => ({
   auth,

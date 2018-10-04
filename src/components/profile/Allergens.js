@@ -3,11 +3,11 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 // import { withRouter } from "react-router-dom";
 import { List, Button, Segment, Label, Header, Icon } from "semantic-ui-react";
-import { getAllAllergens } from "../../actions/allergens.action";
+import { getAllAllergens } from "../../actions/allergens.actions";
 import {
   getUserAllergens,
   addUserAllergen
-} from "../../actions/userAllergens.action";
+} from "../../actions/userAllergens.actions";
 
 const mapStateToProps = ({ auth, allergens, userAllergens }) => ({
   auth,

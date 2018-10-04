@@ -43,8 +43,8 @@ export default (state = initialState, action) => {
       return { ...state, isLoading: false, showSignupError: true };
     case USER_LOGOUT:
       return {
-        ...state,
         isLoading: false,
+        isLoggedIn: false,
         showLoginError: false,
         showSignupError: false,
         user: {}

@@ -1,4 +1,4 @@
-import allergensModel from '../models/allergens.model'
+import allergensModel from '../models/allergens.models'
 
 export const GET_ALL_ALLERGENS = 'GET_ALL_ALLERGENS'
 

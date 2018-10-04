@@ -1,4 +1,4 @@
-import { GET_ALL_ALLERGENS } from "../actions/allergens.action";
+import { GET_ALL_ALLERGENS } from "../actions/allergens.actions";
 
 let initialState = {
   allAllergens: []
