@@ -66,41 +66,59 @@ class MobileContainer extends Component {
             </Menu.Item>
             {this.props.auth.isLoggedIn ? (
               <Menu.Item as={Link} to="/profile">
+                <Icon
+                  inverted
+                  color="black"
+                  name="user"
+                  style={{ marginRight: "0.5em" }}
+                />
                 Profile
               </Menu.Item>
             ) : null}
             {this.props.auth.isLoggedIn ? (
               <Menu.Item as={Link} to="/search">
+                <Icon
+                  inverted
+                  color="black"
+                  name="search"
+                  style={{ marginRight: "0.5em" }}
+                />
                 Search
               </Menu.Item>
             ) : null}
-
-            {/* <Menu.Item as="a">Profile</Menu.Item>
-            <Menu.Item as="a">Search</Menu.Item>
-            <Menu.Item as="a">Careers</Menu.Item> */}
             {this.props.auth.isLoggedIn ? (
-              <Menu.Item onClick={this.onClick}>Logout</Menu.Item>
-            ) : (
-              <div>
-                <Menu.Item
-                  styple={{ marginLeft: "0.5em" }}
-                  as={Link}
-                  to="/login"
-                >
-                  Login In
-                </Menu.Item>
-                <Menu.Item
-                  style={{ marginLeft: "0.5em" }}
-                  as={Link}
-                  to="/signup"
-                >
-                  Sign Up
-                </Menu.Item>
-              </div>
-            )}
-
-            {/* <Menu.Item as="a">Log In</Menu.Item>
-            <Menu.Item as="a">Sign Up</Menu.Item> */}
+              <Menu.Item onClick={this.onClick}>
+                <Icon
+                  inverted
+                  color="black"
+                  name="sign-out"
+                  style={{ marginRight: "0.5em" }}
+                />
+                Logout
+              </Menu.Item>
+            ) : null}
+            {!this.props.auth.isLoggedIn ? (
+              <Menu.Item as={Link} to="/login">
+                <Icon
+                  inverted
+                  color="black"
+                  name="sign-in"
+                  style={{ marginRight: "0.5em" }}
+                />
+                Login
+              </Menu.Item>
+            ) : null}
+            {!this.props.auth.isLoggedIn ? (
+              <Menu.Item as={Link} to="/signup">
+                <Icon
+                  inverted
+                  color="black"
+                  name="signup"
+                  style={{ marginRight: "0.5em" }}
+                />
+                Sign Up
+              </Menu.Item>
+            ) : null}
           </Sidebar>
 
           <Sidebar.Pusher
@@ -125,35 +143,42 @@ class MobileContainer extends Component {
                         style={{ marginLeft: "0.5em" }}
                         inverted
                         onClick={this.onClick}
+                        animated
                       >
-                        Logout
+                        <Button.Content visible>Logout</Button.Content>
+                        <Button.Content hidden>
+                          <Icon name="sign-out" />
+                        </Button.Content>
                       </Button>
-                    ) : (
-                      <div>
-                        <Button
-                          styple={{ marginLeft: "0.5em" }}
-                          inverted
-                          as={Link}
-                          to="/login"
-                        >
-                          Login In
-                        </Button>
-                        <Button
-                          style={{ marginLeft: "0.5em" }}
-                          inverted
-                          as={Link}
-                          to="/signup"
-                        >
-                          Sign Up
-                        </Button>
-                      </div>
-                    )}
-                    {/* <Button as="a" inverted>
-                      Log in
-                    </Button>
-                    <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
-                      Sign Up
-                    </Button> */}
+                    ) : null}
+                    {!this.props.auth.isLoggedIn ? (
+                      <Button
+                        style={{ marginLeft: "0.5em" }}
+                        inverted
+                        animated
+                        as={Link}
+                        to="/login"
+                      >
+                        <Button.Content visible>Login</Button.Content>
+                        <Button.Content hidden>
+                          <Icon name="sign-in" />
+                        </Button.Content>
+                      </Button>
+                    ) : null}
+                    {!this.props.auth.isLoggedIn ? (
+                      <Button
+                        style={{ marginLeft: "0.5em" }}
+                        inverted
+                        animated
+                        as={Link}
+                        to="/signup"
+                      >
+                        <Button.Content visible>Sign Up</Button.Content>
+                        <Button.Content hidden>
+                          <Icon name="signup" />
+                        </Button.Content>
+                      </Button>
+                    ) : null}
                   </Menu.Item>
                 </Menu>
               </Container>
@@ -175,6 +200,6 @@ MobileContainer.propTypes = {
 export default withRouter(
   connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
   )(MobileContainer)
 );

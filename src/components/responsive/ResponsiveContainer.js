@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import DesktopContainer from './DesktopContainer'
+import DesktopContainer from './desktop/DesktopContainer'
 import MobileContainer from './MobileContainer'
 
 const ResponsiveContainer = ({ children }) => (
