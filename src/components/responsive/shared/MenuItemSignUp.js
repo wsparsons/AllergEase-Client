@@ -3,16 +3,16 @@ import { Icon, Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-const DesktopMenuItemProfile = ( ) => {
+const MenuItemSignUp = () => {
   return (
-    <Menu.Item as={Link} to="/profile">
+    <Menu.Item as={Link} to="/login">
       <Icon
         inverted
         color="black"
-        name="user"
+        name="signup"
         style={{ marginRight: "0.5em" }}
       />
-      Profile
+      Sign Up
     </Menu.Item>
   );
 };
@@ -20,4 +20,4 @@ const DesktopMenuItemProfile = ( ) => {
 export default connect(
   null,
   null
-)(DesktopMenuItemProfile);
+)(MenuItemSignUp);

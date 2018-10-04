@@ -12,38 +12,35 @@ import {
 import HomepageHeading from "./HomepageHeading";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import { userLogout } from "../../actions/auth.actions";
 import { bindActionCreators } from "redux";
+import MenuItemProfile from "./shared/MenuItemProfile";
+import MenuItemSearch from "./shared/MenuItemSearch";
+import MenuItemLogout from "./shared/MenuItemLogout";
+import MenuItemLogin from "./shared/MenuItemLogin";
+import MenuItemSignIn from "./shared/MenuItemSignUp";
+import MenuButtonLogout from "./shared/MenuButtonLogout";
+import MenuButtonLogin from "./shared/MenuButtonLogin";
+import MenuButtonSignUp from "./shared/MenuButtonSignUp";
 
 const mapStateToProps = ({ auth }) => ({ auth });
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ userLogout }, dispatch);
-};
 
 class MobileContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      sidebarOpened: false
+    };
   }
-  // state = {};
 
   handlePusherClick = () => {
-    const { sidebarOpened } = this.state;
-
-    if (sidebarOpened) this.setState({ sidebarOpened: false });
+    if (this.state.sidebarOpened) this.setState({ sidebarOpened: false });
   };
 
   handleToggle = () =>
     this.setState({ sidebarOpened: !this.state.sidebarOpened });
 
-  onClick = event => {
-    event.preventDefault();
-    this.props.userLogout();
-  };
-
   render() {
     const { children } = this.props;
-    const { sidebarOpened } = this.state;
 
     return (
       <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
@@ -53,7 +50,7 @@ class MobileContainer extends Component {
             animation="uncover"
             inverted
             vertical
-            visible={sidebarOpened}
+            visible={this.state.sidebarOpened}
           >
             <Menu.Item as="a" active>
               <Icon
@@ -64,65 +61,15 @@ class MobileContainer extends Component {
               />
               Home
             </Menu.Item>
-            {this.props.auth.isLoggedIn ? (
-              <Menu.Item as={Link} to="/profile">
-                <Icon
-                  inverted
-                  color="black"
-                  name="user"
-                  style={{ marginRight: "0.5em" }}
-                />
-                Profile
-              </Menu.Item>
-            ) : null}
-            {this.props.auth.isLoggedIn ? (
-              <Menu.Item as={Link} to="/search">
-                <Icon
-                  inverted
-                  color="black"
-                  name="search"
-                  style={{ marginRight: "0.5em" }}
-                />
-                Search
-              </Menu.Item>
-            ) : null}
-            {this.props.auth.isLoggedIn ? (
-              <Menu.Item onClick={this.onClick}>
-                <Icon
-                  inverted
-                  color="black"
-                  name="sign-out"
-                  style={{ marginRight: "0.5em" }}
-                />
-                Logout
-              </Menu.Item>
-            ) : null}
-            {!this.props.auth.isLoggedIn ? (
-              <Menu.Item as={Link} to="/login">
-                <Icon
-                  inverted
-                  color="black"
-                  name="sign-in"
-                  style={{ marginRight: "0.5em" }}
-                />
-                Login
-              </Menu.Item>
-            ) : null}
-            {!this.props.auth.isLoggedIn ? (
-              <Menu.Item as={Link} to="/signup">
-                <Icon
-                  inverted
-                  color="black"
-                  name="signup"
-                  style={{ marginRight: "0.5em" }}
-                />
-                Sign Up
-              </Menu.Item>
-            ) : null}
+            {this.props.auth.isLoggedIn && <MenuItemProfile />}
+            {this.props.auth.isLoggedIn && <MenuItemSearch />}
+            {this.props.auth.isLoggedIn && <MenuItemLogout />}
+            {!this.props.auth.isLoggedIn && <MenuItemLogin />}
+            {!this.props.auth.isLoggedIn && <MenuItemSignIn />}
           </Sidebar>
 
           <Sidebar.Pusher
-            dimmed={sidebarOpened}
+            dimmed={this.state.sidebarOpened}
             onClick={this.handlePusherClick}
             style={{ minHeight: "100vh" }}
           >
@@ -138,47 +85,9 @@ class MobileContainer extends Component {
                     <Icon name="sidebar" />
                   </Menu.Item>
                   <Menu.Item position="right">
-                    {this.props.auth.isLoggedIn ? (
-                      <Button
-                        style={{ marginLeft: "0.5em" }}
-                        inverted
-                        onClick={this.onClick}
-                        animated
-                      >
-                        <Button.Content visible>Logout</Button.Content>
-                        <Button.Content hidden>
-                          <Icon name="sign-out" />
-                        </Button.Content>
-                      </Button>
-                    ) : null}
-                    {!this.props.auth.isLoggedIn ? (
-                      <Button
-                        style={{ marginLeft: "0.5em" }}
-                        inverted
-                        animated
-                        as={Link}
-                        to="/login"
-                      >
-                        <Button.Content visible>Login</Button.Content>
-                        <Button.Content hidden>
-                          <Icon name="sign-in" />
-                        </Button.Content>
-                      </Button>
-                    ) : null}
-                    {!this.props.auth.isLoggedIn ? (
-                      <Button
-                        style={{ marginLeft: "0.5em" }}
-                        inverted
-                        animated
-                        as={Link}
-                        to="/signup"
-                      >
-                        <Button.Content visible>Sign Up</Button.Content>
-                        <Button.Content hidden>
-                          <Icon name="signup" />
-                        </Button.Content>
-                      </Button>
-                    ) : null}
+                    {this.props.auth.isLoggedIn && <MenuButtonLogout />}
+                    {!this.props.auth.isLoggedIn && <MenuButtonLogin />}
+                    {!this.props.auth.isLoggedIn && <MenuButtonSignUp />}
                   </Menu.Item>
                 </Menu>
               </Container>
@@ -200,6 +109,6 @@ MobileContainer.propTypes = {
 export default withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
   )(MobileContainer)
 );

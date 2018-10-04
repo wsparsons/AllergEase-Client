@@ -9,14 +9,14 @@ import {
   Segment,
   Visibility
 } from "semantic-ui-react";
-import HomepageHeading from "../HomepageHeading";
+import HomepageHeading from "./HomepageHeading";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-import DesktopMenuItemProfile from "./DesktopMenuItemProfile";
-import DesktopMenuItemSearch from "./DesktopMenuItemSearch";
-import DesktopMenuButtonLogout from "./DesktopMenuButtonLogout";
-import DesktopMenuButtonSignIn from "./DesktopMenuButtonSignIn";
-import DesktopMenuButtonSignUp from "./DesktopMenuButtonSignUp";
+import MenuItemProfile from "./shared/MenuItemProfile";
+import MenuItemSearch from "./shared/MenuItemSearch";
+import MenuButtonLogout from "./shared/MenuButtonLogout";
+import MenuButtonSignIn from "./shared/MenuButtonLogin";
+import MenuButtonSignUp from "./shared/MenuButtonSignUp";
 
 const mapStateToProps = ({ auth }) => ({ auth });
 
@@ -27,7 +27,6 @@ class DesktopContainer extends Component {
       fixed: false
     };
   }
-  // state = {};
 
   hideFixedMenu = () => this.setState({ fixed: false });
   showFixedMenu = () => this.setState({ fixed: true });
@@ -65,18 +64,18 @@ class DesktopContainer extends Component {
                   Home
                 </Menu.Item>
 
-                {this.props.auth.isLoggedIn && <DesktopMenuItemProfile />}
-                {this.props.auth.isLoggedIn && <DesktopMenuItemSearch />}
+                {this.props.auth.isLoggedIn && <MenuItemProfile />}
+                {this.props.auth.isLoggedIn && <MenuItemSearch />}
 
                 <Menu.Item position="right">
                   {this.props.auth.isLoggedIn && (
-                    <DesktopMenuButtonLogout fixed={this.state.fixed} />
+                    <MenuButtonLogout fixed={this.state.fixed} />
                   )}
                   {!this.props.auth.isLoggedIn && (
-                    <DesktopMenuButtonSignIn fixed={this.state.fixed} />
+                    <MenuButtonSignIn fixed={this.state.fixed} />
                   )}
                   {!this.props.auth.isLoggedIn && (
-                    <DesktopMenuButtonSignUp fixed={this.state.fixed} />
+                    <MenuButtonSignUp fixed={this.state.fixed} />
                   )}
                 </Menu.Item>
               </Container>

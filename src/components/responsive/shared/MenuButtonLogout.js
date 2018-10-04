@@ -8,7 +8,7 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({ userLogout }, dispatch);
 };
 
-const DesktopMenuButtonLogout = ({ fixed, userLogout }) => {
+const MenuButtonLogout = ({ fixed, userLogout }) => {
   return (
     <Button
       style={{ marginLeft: "0.5em" }}
@@ -27,4 +27,4 @@ const DesktopMenuButtonLogout = ({ fixed, userLogout }) => {
 export default connect(
   null,
   mapDispatchToProps
-)(DesktopMenuButtonLogout);
+)(MenuButtonLogout);

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 
-const DesktopMenuButtonSignUp = ({ fixed }) => {
+const MenuButtonSignUp = ({ fixed }) => {
   return (
     <Button
       style={{ marginLeft: "0.5em" }}
@@ -24,4 +24,4 @@ const DesktopMenuButtonSignUp = ({ fixed }) => {
 export default connect(
   null,
   null
-)(DesktopMenuButtonSignUp);
+)(MenuButtonSignUp);

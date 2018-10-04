@@ -1,18 +1,21 @@
 import React from "react";
 import { Button, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const DesktopMenuButtonLogin = ({ fixed }) => {
+
+const MenuButtonLogin = ({ fixed }) => {
   return (
     <Button
       style={{ marginLeft: "0.5em" }}
       inverted={!fixed}
-      onClick={this.onClick}
       animated
+      as={Link}
+      to="/login"
     >
-      <Button.Content visible>Logout</Button.Content>
+      <Button.Content visible>Login</Button.Content>
       <Button.Content hidden>
-        <Icon name="sign-out" />
+        <Icon name="sign-in" />
       </Button.Content>
     </Button>
   );
@@ -21,4 +24,4 @@ const DesktopMenuButtonLogin = ({ fixed }) => {
 export default connect(
   null,
   null
-)(DesktopMenuButtonLogin);
+)(MenuButtonLogin);
