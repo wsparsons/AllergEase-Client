@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import {
   Container,
   Icon,
@@ -8,18 +7,22 @@ import {
   Segment,
   Sidebar
 } from "semantic-ui-react";
-import HomepageHeading from "./HomepageHeading";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import MenuItemHome from "./shared/MenuItemHome";
-import MenuItemProfile from "./shared/MenuItemProfile";
-import MenuItemSearch from "./shared/MenuItemSearch";
-import MenuItemLogout from "./shared/MenuItemLogout";
-import MenuItemLogin from "./shared/MenuItemLogin";
-import MenuItemSignIn from "./shared/MenuItemSignUp";
-import MenuButtonLogout from "./shared/MenuButtonLogout";
-import MenuButtonLogin from "./shared/MenuButtonLogin";
-import MenuButtonSignUp from "./shared/MenuButtonSignUp";
+
+import MenuItemHome from "../menu/MenuItemHome";
+import MenuItemProfile from "../menu/MenuItemProfile";
+import MenuItemSearch from "../menu/MenuItemSearch";
+import MenuItemLogout from "../menu/MenuItemLogout";
+import MenuItemLogin from "../menu/MenuItemLogin";
+import MenuItemSignIn from "../menu/MenuItemSignUp";
+import MenuButtonLogout from "../menu/MenuButtonLogout";
+import MenuButtonLogin from "../menu/MenuButtonLogin";
+import MenuButtonSignUp from "../menu/MenuButtonSignUp";
+
+import HomepageHeading from "./HomepageHeading";
+import HomepageLayout from "./HomepageLayout";
+import Footer from "../shared/Footer";
 
 const mapStateToProps = ({ auth }) => ({ auth });
 
@@ -39,8 +42,6 @@ class MobileContainer extends Component {
     this.setState({ sidebarOpened: !this.state.sidebarOpened });
 
   render() {
-    const { children } = this.props;
-
     return (
       <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
         <Sidebar.Pushable>
@@ -67,7 +68,7 @@ class MobileContainer extends Component {
             <Segment
               inverted
               textAlign="center"
-              style={{ minHeight: 200, padding: "1em 0em" }}
+              // style={{ minHeight: 200, padding: "1em 0em" }}
               vertical
             >
               <Container>
@@ -82,20 +83,17 @@ class MobileContainer extends Component {
                   </Menu.Item>
                 </Menu>
               </Container>
-              <HomepageHeading mobile />
+              {/* <HomepageHeading mobile /> */}
             </Segment>
 
-            {children}
+            {this.props.view}
+            <Footer />
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </Responsive>
     );
   }
 }
-
-MobileContainer.propTypes = {
-  children: PropTypes.node
-};
 
 export default withRouter(
   connect(

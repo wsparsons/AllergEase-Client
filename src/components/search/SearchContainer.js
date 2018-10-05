@@ -7,23 +7,20 @@ import {
   Segment,
   Visibility
 } from "semantic-ui-react";
+import HomepageHeading from "../responsive/HomepageHeading";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
 import MenuItemHome from "../menu/MenuItemHome";
 import MenuItemProfile from "../menu/MenuItemProfile";
 import MenuItemSearch from "../menu/MenuItemSearch";
 import MenuButtonLogout from "../menu/MenuButtonLogout";
-import MenuButtonLogin from "../menu/MenuButtonLogin";
+import MenuButtonSignIn from "../menu/MenuButtonLogin";
 import MenuButtonSignUp from "../menu/MenuButtonSignUp";
-
-import HomepageHeading from "./HomepageHeading";
-// import HomepageLayout from "./HomepageLayout";
-import Footer from "../shared/Footer";
+import Search from './Search'
 
 const mapStateToProps = ({ auth }) => ({ auth });
 
-class DesktopContainer extends Component {
+class SearchContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,6 +32,7 @@ class DesktopContainer extends Component {
   showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
+    const { children } = this.props;
     return (
       <Responsive minWidth={Responsive.onlyTablet.minWidth}>
         <Visibility
@@ -45,7 +43,7 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign="center"
-            // style={{ minHeight: 400, padding: "1em 0em" }}
+            style={{ minHeight: 400, padding: "1em 0em" }}
             vertical
           >
             <Menu
@@ -65,7 +63,7 @@ class DesktopContainer extends Component {
                     <MenuButtonLogout fixed={this.state.fixed} />
                   )}
                   {!this.props.auth.isLoggedIn && (
-                    <MenuButtonLogin fixed={this.state.fixed} />
+                    <MenuButtonSignIn fixed={this.state.fixed} />
                   )}
                   {!this.props.auth.isLoggedIn && (
                     <MenuButtonSignUp fixed={this.state.fixed} />
@@ -73,21 +71,22 @@ class DesktopContainer extends Component {
                 </Menu.Item>
               </Container>
             </Menu>
-            {/* <HomepageHeading /> */}
           </Segment>
         </Visibility>
 
-        {this.props.view}
-        {/* <HomepageLayout /> */}
-        <Footer/>
+        <Search/>
       </Responsive>
     );
   }
 }
 
+// SearchContainer.propTypes = {
+//   children: PropTypes.node
+// };
+
 export default withRouter(
   connect(
     mapStateToProps,
     null
-  )(DesktopContainer)
+  )(SearchContainer)
 );

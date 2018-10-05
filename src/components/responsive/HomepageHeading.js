@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import { Button, Container, Header, Icon } from "semantic-ui-react";
-import "./styles/styles.css";
 
 const HomepageHeading = ({ mobile }) => (
   <Container text>
@@ -17,7 +16,7 @@ const HomepageHeading = ({ mobile }) => (
         // marginTop: mobile ? "1.5em" : "1.5em"
       }}
     />
-    <Header
+    {/* <Header
       as="h6"
       content="If you have a food allergy, you may feel that food is no longer your friend. But knowledge is power. Learn how you can identify your food sensitivity and spot your triggers, even when they appear in disguise."
       inverted
@@ -26,7 +25,7 @@ const HomepageHeading = ({ mobile }) => (
         fontWeight: "normal"
         // marginTop: mobile ? "0.5em" : "1.5em"
       }}
-    />
+    /> */}
     <Button primary size="big">
       See Allergens
       <Icon name="right arrow" />

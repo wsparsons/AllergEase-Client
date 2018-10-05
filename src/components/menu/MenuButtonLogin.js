@@ -3,7 +3,6 @@ import { Button, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-
 const MenuButtonLogin = ({ fixed }) => {
   return (
     <Button

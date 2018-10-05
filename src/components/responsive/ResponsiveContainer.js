@@ -1,18 +1,14 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import DesktopContainer from './DesktopContainer'
-import MobileContainer from './MobileContainer'
+import DesktopContainer from "./DesktopContainer";
+import MobileContainer from "./MobileContainer";
 
-const ResponsiveContainer = ({ children }) => (
+const ResponsiveContainer = (props) => (
   <div>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
+    <DesktopContainer view={props.children}/>
+    <MobileContainer view={props.children}/>
   </div>
-)
+);
 
-ResponsiveContainer.propTypes = {
-  children: PropTypes.node,
-}
-
-export default ResponsiveContainer
+export default ResponsiveContainer;

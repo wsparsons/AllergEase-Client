@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-// import { withRouter } from "react-router-dom";
 import { List, Button, Segment, Label, Header, Icon } from "semantic-ui-react";
 import { getAllAllergens } from "../../actions/allergens.actions";
 import {

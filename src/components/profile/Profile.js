@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
-import Allergens from "./Allergens";
+import AllergensList from "./AllergensList";
 import UserAllergens from './UserAllergens'
 
 
@@ -16,7 +16,7 @@ class Profile extends Component {
       <Grid>
         <Grid.Row centered columns={2}>
           <Grid.Column >
-            <Allergens />
+            <AllergensList />
           </Grid.Column>
           <Grid.Column >
             <UserAllergens/>

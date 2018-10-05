@@ -7,13 +7,11 @@ import {
   Image,
   Segment,
 } from 'semantic-ui-react'
-import Footer from '../shared/Footer'
-
-import ResponsiveContainer from './ResponsiveContainer'
+import HomepageHeading from './HomepageHeading'
 
 const HomepageLayout = () => (
-  <ResponsiveContainer>
-    {/* <Segment style={{ padding: '8em 0em' }} vertical>
+  <div>
+    <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
@@ -42,7 +40,8 @@ const HomepageLayout = () => (
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    </Segment> */}
+    </Segment>
+    {/* <HomepageHeading mobile/> */}
     <Segment style={{ padding: '0em' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
         <Grid.Row textAlign='center'>
@@ -90,8 +89,7 @@ const HomepageLayout = () => (
         </Button>
       </Container>
     </Segment>
-   <Footer />
-  </ResponsiveContainer>
+  </div>
 )
 
 export default HomepageLayout
