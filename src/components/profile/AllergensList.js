@@ -73,19 +73,11 @@ class Allergens extends Component {
         )
     );
 
-    let list = filterAllergensList.map(allergen => {
+    let allergensList = filterAllergensList.map(allergen => {
       return (
         <List.Item key={allergen.id}>
-          <List.Content floated="left">
-            <Button animated color="red" onClick={() => this.onClick(allergen)}>
-              <Button.Content visible>REMOVE</Button.Content>
-              <Button.Content hidden>
-                <Icon name="remove" />
-              </Button.Content>
-            </Button>
-          </List.Content>
           <List.Header verticalalign="middle">
-            <Label image size="large">
+            <Label image size="big">
               <Image src={photos[allergen.id - 1]} />
               <Icon
                 link
@@ -99,55 +91,6 @@ class Allergens extends Component {
         </List.Item>
       );
     });
-
-    let allergensList = this.props.allergens.allAllergens.map(allergen => {
-      return (
-        <List.Item key={allergen.id}>
-          <List.Content floated="left">
-            <Button
-              animated
-              basic
-              color="green"
-              disabled={
-                !!this.props.userAllergens.userAllergens.find(
-                  userAllergen => userAllergen.allergen_id === allergen.id
-                )
-              }
-              onClick={() => this.onClick(allergen)}
-            >
-              <Button.Content visible>ADD</Button.Content>
-              <Button.Content hidden>
-                <Icon name="arrow right" />
-              </Button.Content>
-            </Button>
-          </List.Content>
-
-          <List.Header verticalalign="middle">
-            <Label image size="large">
-              <Image src={photos[allergen.id - 1]} />
-              <Icon
-                link
-                name="plus"
-                disabled
-                onClick={() => this.onClick(allergen)}
-              />
-              {allergen.allergy.toUpperCase()}
-            </Label>
-            {/* <Label
-              size="big"
-              circular
-              color="teal"
-              style={{ marginRight: "0.5em" }}
-            >
-              {allergen.allergy[0].toUpperCase()}
-            </Label> */}
-            {/* {allergen.allergy.toUpperCase()} */}
-          </List.Header>
-        </List.Item>
-      );
-    });
-
-    console.log(filterAllergensList);
 
     return (
       <Segment color="green">
@@ -155,7 +98,7 @@ class Allergens extends Component {
           Allergens
         </Header>
         <List divided verticalalign="middle">
-          {list}
+          {allergensList}
         </List>
       </Segment>
     );

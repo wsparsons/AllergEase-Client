@@ -7,13 +7,14 @@ import AllergensContainer from "./components/allergens/AllergensContainer";
 import ResponsiveContainer from "./components/responsive/ResponsiveContainer";
 import Login from "./components/registration/Login";
 import SignUp from "./components/registration/SignUp";
+import SearchContainer from './components/search/SearchContainer'
 import Profile from "./components/profile/Profile";
 import { verify } from "./actions/auth.actions";
-import { getAllAllergens } from "./actions/allergens.actions"
+import { getAllAllergens } from "./actions/allergens.actions";
 import { bindActionCreators } from "redux";
-import Search from "./components/search/Search";
+// import Search from "./components/search/Search";
 
-const mapStateToProps = ({ auth, allergens }) => ({ auth , allergens});
+const mapStateToProps = ({ auth, allergens }) => ({ auth, allergens });
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ verify, getAllAllergens }, dispatch);
@@ -34,14 +35,13 @@ class App extends Component {
         <ResponsiveContainer>
           <Switch>
             <Route exact path="/home" component={HomepageContainer} />
-            <Route exact path="/allergens" render={(props) => {
-              return <AllergensContainer {...props}/>
+            <Route exact path="/allergens" component={AllergensContainer} />
             }} />
             <AuthenticatedRoute
               exact
               path="/search"
               render={() => {
-                return <Search />;
+                return <SearchContainer />;
               }}
             />
             <AuthenticatedRoute
