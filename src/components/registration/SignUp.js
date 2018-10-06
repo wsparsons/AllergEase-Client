@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import {
   Button,
+  Container,
   Form,
   Grid,
   Header,
@@ -27,6 +28,10 @@ class Login extends Component {
     };
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -47,7 +52,8 @@ class Login extends Component {
 
   render() {
     return (
-      <Segment style={{ padding: "10em 0em" }} vertical>
+      <Segment style={{ padding: "10em 0em" }} vertical id="signupContainer">
+        <Container text>
         <Grid
           textAlign="center"
           style={{ height: "100%" }}
@@ -115,6 +121,7 @@ class Login extends Component {
             )}
           </Grid.Column>
         </Grid>
+        </Container>
       </Segment>
     );
   }

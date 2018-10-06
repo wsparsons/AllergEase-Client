@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import {
   Container,
   Menu,
@@ -57,7 +56,7 @@ class DesktopContainer extends Component {
             >
               <Container>
                 <MenuItemHome />
-                <MenuItemAllergens/>
+                <MenuItemAllergens />
                 {this.props.auth.isLoggedIn && <MenuItemProfile />}
                 {this.props.auth.isLoggedIn && <MenuItemSearch />}
 

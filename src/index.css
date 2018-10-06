@@ -18,3 +18,11 @@
   color: white;
   text-shadow: 4px 4px 6px #000000;
 }
+
+#registerContainer {
+  background-image: url('https://www.myhealth.va.gov/mhv-portal-web/documents/12612/0/Allergy-Food/d0fe3fe3-3049-5f4a-5534-1fda1753783e?t=1525803664289');
+  background-size: cover;
+  background-position: center; 
+  height: 100%;
+  opacity: 0.9;
+}
