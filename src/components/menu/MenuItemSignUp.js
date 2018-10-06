@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const MenuItemSignUp = () => {
   return (
-    <Menu.Item as={Link} to="/login">
+    <Menu.Item as={Link} to="/signup">
       <Icon
         inverted
         color="black"

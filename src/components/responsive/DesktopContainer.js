@@ -11,14 +11,14 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import MenuItemHome from "../menu/MenuItemHome";
+import MenuItemAllergens from "../menu/MenuItemAllergens";
 import MenuItemProfile from "../menu/MenuItemProfile";
 import MenuItemSearch from "../menu/MenuItemSearch";
 import MenuButtonLogout from "../menu/MenuButtonLogout";
 import MenuButtonLogin from "../menu/MenuButtonLogin";
 import MenuButtonSignUp from "../menu/MenuButtonSignUp";
 
-import HomepageHeading from "./HomepageHeading";
-// import HomepageLayout from "./HomepageLayout";
+import HomepageHeading from "../home/HomepageHeading";
 import Footer from "../shared/Footer";
 
 const mapStateToProps = ({ auth }) => ({ auth });
@@ -45,7 +45,7 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign="center"
-            // style={{ minHeight: 400, padding: "1em 0em" }}
+            style={{ minHeight: 80, padding: "1em 0em" }}
             vertical
           >
             <Menu
@@ -57,6 +57,7 @@ class DesktopContainer extends Component {
             >
               <Container>
                 <MenuItemHome />
+                <MenuItemAllergens/>
                 {this.props.auth.isLoggedIn && <MenuItemProfile />}
                 {this.props.auth.isLoggedIn && <MenuItemSearch />}
 
@@ -79,7 +80,7 @@ class DesktopContainer extends Component {
 
         {this.props.view}
         {/* <HomepageLayout /> */}
-        <Footer/>
+        <Footer />
       </Responsive>
     );
   }

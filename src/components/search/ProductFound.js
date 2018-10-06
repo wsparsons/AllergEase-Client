@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Card, Item, Image, Icon } from "semantic-ui-react";
 
-const mapStateToProps = state => ({
-  searchResult: state.search.searchResult
-});
+const mapStateToProps = ({ search }) => ({ search });
 
 class ProductFound extends Component {
   constructor(props) {
@@ -13,29 +11,34 @@ class ProductFound extends Component {
   }
 
   render() {
-    return (
+    console.log(this.props.search.searchResult);
+    return this.props.search.searchResult.product ? (
       <Item.Group>
         <Item>
           <Item.Image
             size="large"
-            src={this.props.searchResult.product.image}
+            src={this.props.search.searchResult.product.image}
           />
           <Item.Content verticalAlign="middle">
-            {this.props.searchResult.valence ? (
+            {this.props.search.searchResult.valence ? (
               <Icon size="huge" color="red" name="thumbs down" />
             ) : (
               <Icon size="huge" color="green" name="thumbs up" />
             )}
-            <Item.Header>{this.props.searchResult.product.name}</Item.Header>
+            <Item.Header>
+              {this.props.search.searchResult.product.name}
+            </Item.Header>
             <Item.Meta>
-              {this.props.searchResult.product.manufacturer}
+              {this.props.search.searchResult.product.manufacturer}
             </Item.Meta>
             <Item.Description>
-              {this.props.searchResult.product.ingredients}
+              {this.props.search.searchResult.product.ingredients}
             </Item.Description>
           </Item.Content>
         </Item>
       </Item.Group>
+    ) : (
+      ""
     );
   }
 }

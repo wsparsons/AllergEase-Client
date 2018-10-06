@@ -24,6 +24,10 @@ class Login extends Component {
       password: ""
     };
   }
+  
+  componentDidMount(){
+    window.scrollTo(0, 0)
+  }
 
   onChange = event => {
     this.setState({
@@ -43,7 +47,7 @@ class Login extends Component {
 
   render() {
     return (
-      <Segment style={{padding: '8em 0em'}} vertical>
+      <Segment style={{padding: '10em 0em'}} vertical>
         <Grid
           textAlign="center"
           style={{ height: "100%" }}
