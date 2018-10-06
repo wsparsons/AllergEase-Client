@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { Container, Responsive } from "semantic-ui-react";
 import AuthenticatedRoute from "./components/helper/AuthenticatedRoute";
-import HomepageLayout from "./components/responsive/HomepageLayout";
+import HomepageContainer from "./components/home/HomepageContainer";
+import AllergensContainer from "./components/allergens/AllergensContainer";
 import ResponsiveContainer from "./components/responsive/ResponsiveContainer";
 import Login from "./components/registration/Login";
 import SignUp from "./components/registration/SignUp";
@@ -13,7 +13,7 @@ import { getAllAllergens } from "./actions/allergens.actions"
 import { bindActionCreators } from "redux";
 import Search from "./components/search/Search";
 
-const mapStateToProps = ({ auth }) => ({ auth });
+const mapStateToProps = ({ auth, allergens }) => ({ auth , allergens});
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({ verify, getAllAllergens }, dispatch);
@@ -35,7 +35,10 @@ class App extends Component {
         {/* <NavBar /> */}
         <ResponsiveContainer>
           <Switch>
-            <Route exact path="/home" component={HomepageLayout} />
+            <Route exact path="/home" component={HomepageContainer} />
+            <Route exact path="/allergens" render={(props) => {
+              return <AllergensContainer {...props}/>
+            }} />
             <AuthenticatedRoute
               exact
               path="/search"
@@ -48,13 +51,6 @@ class App extends Component {
               path="/profile"
               render={() => {
                 return <Profile />;
-              }}
-            />
-            <AuthenticatedRoute
-              exact
-              path="/profile"
-              render={() => {
-                return < Profile/>;
               }}
             />
             <Route

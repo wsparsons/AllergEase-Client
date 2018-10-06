@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import { Button, Form, Grid, Header, Message } from "semantic-ui-react";
 import { searchBarcode } from "../../actions/search.actions";
 import ProductFound from "./ProductFound";
 
-const mapStateToProps = ({ search, auth }) => ({
-  search,
-  auth
-});
-
+const mapStateToProps = ({ search, auth }) => ({ search, auth });
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ searchBarcode }, dispatch);
-
 class Search extends Component {
   constructor(props) {
     super(props);

@@ -7,4 +7,5 @@ const getAllAllergens = async () => {
   return response.data.response;
 };
 
+
 export default { getAllAllergens };
