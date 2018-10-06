@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { List, Button, Segment, Label, Image, Header, Icon } from "semantic-ui-react";
+import {
+  List,
+  Button,
+  Segment,
+  Label,
+  Image,
+  Header,
+  Icon
+} from "semantic-ui-react";
 import {
   getUserAllergens,
   removeUserAllergen
@@ -48,29 +56,20 @@ class UserAllergens extends Component {
       treenutImage,
       wheatImage
     ];
-    
+
     let userAllergenList = this.props.userAllergens.userAllergens.map(
       userAllergen => {
         return (
           <List.Item key={userAllergen.id}>
-            <List.Content floated="left">
-              <Button
-                animated
-                color="red"
-                onClick={() => this.onClick(userAllergen)}
-              >
-                <Button.Content visible>REMOVE</Button.Content>
-                <Button.Content hidden>
-                  <Icon name="remove" />
-                </Button.Content>
-              </Button>
-            </List.Content>
             <List.Header verticalalign="middle">
-            <Label image size="large">
-              <Image src={photos[userAllergen.allergen_id - 1]} />
-              {userAllergen.allergy.toUpperCase()}
-              <Icon name='delete' onClick={() => this.onClick(userAllergen)}/>
-            </Label>
+              <Label image size="big">
+                <Image src={photos[userAllergen.allergen_id - 1]} />
+                {userAllergen.allergy.toUpperCase()}
+                <Icon
+                  name="delete"
+                  onClick={() => this.onClick(userAllergen)}
+                />
+              </Label>
             </List.Header>
           </List.Item>
         );

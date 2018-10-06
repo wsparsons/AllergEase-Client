@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { Button, Form, Grid, Header, Message } from "semantic-ui-react";
+import { Button,Container, Form, Grid, Header, Message } from "semantic-ui-react";
 import { searchBarcode } from "../../actions/search.actions";
 import ProductFound from "./ProductFound";
 
@@ -35,46 +35,57 @@ class Search extends Component {
 
   render() {
     return (
-      <Grid style={{ height: "100%" }}>
-        {/* <Grid.Column style={{ maxWidth: 450 }}> */}
-        <Grid.Row centered>
-          <Grid.Column width={8}>
-            <Header as="h2" color="teal" textAlign="center">
-              Search Barcode Number
-            </Header>
-            <Form onSubmit={this.onSubmit}>
-              <Form.Input
-                fluid
-                icon="barcode"
-                iconPosition="left"
-                placeholder="1234567890"
-                type="integer"
-                name="barcode"
-                value={this.state.barcode}
-                onChange={this.onChange}
-                size="large"
-              />
-              <Button
-                color="teal"
-                fluid
-                size="large"
-                loading={this.props.search.searchLoading ? true : false}
-                disabled={this.state.barcode.length > 0 ? false : true}
-              >
-                Search
-              </Button>
-            </Form>
-            {this.props.search.showSearchError ? (
-              <Message warning header="Could Not Find Product" align="center" />
-            ) : null}
+      <Container>
+        <Grid
+          textAlign="center"
+          style={{ height: "100%" }}
+          verticalAlign="middle"
+        >
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Grid.Row centered>
+              <Grid.Column width={8}>
+                <Header as="h2" color="teal" textAlign="center">
+                  Search Barcode Number
+                </Header>
+                <Form onSubmit={this.onSubmit}>
+                  <Form.Input
+                    fluid
+                    icon="barcode"
+                    iconPosition="left"
+                    placeholder="1234567890"
+                    type="integer"
+                    name="barcode"
+                    value={this.state.barcode}
+                    onChange={this.onChange}
+                    size="large"
+                  />
+                  <Button
+                    color="teal"
+                    fluid
+                    size="large"
+                    loading={this.props.search.searchLoading ? true : false}
+                    disabled={this.state.barcode.length > 0 ? false : true}
+                  >
+                    Search
+                  </Button>
+                </Form>
+                {this.props.search.showSearchError ? (
+                  <Message
+                    warning
+                    header="Could Not Find Product"
+                    align="center"
+                  />
+                ) : null}
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column width={14}>
+                {this.props.search.displayProduct ? <ProductFound /> : null}
+              </Grid.Column>
+            </Grid.Row>
           </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column width={14}>
-            {this.props.search.displayProduct ? <ProductFound /> : null}
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+        </Grid>
+      </Container>
     );
   }
 }

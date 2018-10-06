@@ -73,7 +73,7 @@ class AllergensContainer extends Component {
               <Image circular size="large" src={photos[allergen.id - 1]} />
             </Grid.Column>
             <Grid.Column width={9}>
-              <Header as="h3" style={{ fontSize: "2em" }} textAlign="center">
+              <Header as="h3" style={{ fontSize: "2em" }} textAlign="center" color="teal">
                 {allergen.allergy.toUpperCase()}
               </Header>
               <Accordion fluid styled>
