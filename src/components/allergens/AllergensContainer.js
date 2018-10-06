@@ -22,7 +22,6 @@ import soyImage from "../../images/soy-crop.jpg";
 import sulphiteImage from "../../images/sulphite-crop.jpg";
 import treenutImage from "../../images/treenut-crop.jpg";
 import wheatImage from "../../images/wheat-crop.jpg";
-import AllergenAliases from "./AllergensAliases";
 
 const mapStateToProps = ({ allergens }) => ({ allergens });
 
@@ -42,25 +41,39 @@ class AllergensContainer extends Component {
     const { activeIndex } = this.state;
     const newIndex = activeIndex === index ? -1 : index;
     const element = document.getElementById(`allergen${index}`);
-    element.scrollIntoView({behavior: "smooth", block: "nearest"});
-    
+    element.scrollIntoView({ behavior: "smooth", inline: "start" });
+
     this.setState({ activeIndex: newIndex });
   };
 
   componentDidMount() {
     this.props.getAllAllergens();
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   render() {
-    let photos = [cornImage, eggImage, fishImage, milkImage, peanutImage, sesameImage, soyImage, sulphiteImage, treenutImage, wheatImage ]
+    let photos = [
+      cornImage,
+      eggImage,
+      fishImage,
+      milkImage,
+      peanutImage,
+      sesameImage,
+      soyImage,
+      sulphiteImage,
+      treenutImage,
+      wheatImage
+    ];
 
     let allergensallergens = this.props.allergens.allAllergens.map(allergen => {
       return (
-        <Grid container stackable verticalAlign="middle" key={allergen.id} >
-          <Grid.Row id={`allergen${allergen.id - 1}`} >
+        <Grid container stackable verticalAlign="middle" key={allergen.id}>
+          <Grid.Row id={`allergen${allergen.id - 1}`}>
+            <Grid.Column floated="left" width={6}>
+              <Image circular size="large" src={photos[allergen.id - 1]} />
+            </Grid.Column>
             <Grid.Column width={9}>
-              <Header as="h3" style={{ fontSize: "2em" }} >
+              <Header as="h3" style={{ fontSize: "2em" }} textAlign="center">
                 {allergen.allergy.toUpperCase()}
               </Header>
               <Accordion fluid styled>
@@ -83,21 +96,13 @@ class AllergensContainer extends Component {
                 </Accordion.Content>
               </Accordion>
             </Grid.Column>
-            <Grid.Column floated="right" width={6}>
-              <Image
-               
-                circular
-                size="large"
-                src={photos[allergen.id - 1]}
-              />
-            </Grid.Column>
           </Grid.Row>
         </Grid>
       );
     });
     return (
       <div>
-        <Segment style={{ padding: "8em 0em" }} vertical id="homepageHeader">
+        <Segment style={{ padding: "10em 0em" }} vertical id="homepageHeader">
           <Container text>
             <Header as="h2" style={{ fontSize: "3em" }} textAlign="center">
               <Header.Content id="homepageHeaderContent">
