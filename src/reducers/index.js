@@ -1,11 +1,10 @@
 import auth from "./auth.reducers";
-import search from "./search";
-import allergens from "./allergens";
-
+import search from "./search.reducers";
+import allergens from "./allergens.reducers";
+import userAllergens from "./userAllergens.reducers";
 
 import { combineReducers } from "redux";
-import { reducer as formReducer } from "redux-form";
 
-const rootReducer = combineReducers({ auth, search, allergens });
+const rootReducer = combineReducers({ auth, search, allergens, userAllergens });
 
 export default rootReducer;

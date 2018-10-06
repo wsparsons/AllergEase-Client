@@ -1,4 +1,4 @@
-import searchModel from '../models/search'
+import searchModel from '../models/search.models'
 
 export const POST_SEARCH_PENDING = 'POST_SEARCH_PENDING'
 export const POST_SEARCH_SUCCESS = 'POST_SEARCH_SUCCESS'

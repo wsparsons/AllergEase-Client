@@ -1,30 +1,27 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import {
   Button,
   Form,
   Grid,
   Header,
-  Image,
   Message,
   Segment
 } from "semantic-ui-react";
-import { userLogin } from "../actions/auth.actions";
+import { userSignUp } from "../../actions/auth.actions";
 
-const mapStateToProps = ({ auth }) => ({
-  // showLoginError: state.auth.showLoginError
-  auth
-});
+const mapStateToProps = ({ auth }) => ({ auth });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ userLogin }, dispatch);
+  bindActionCreators({ userSignUp }, dispatch);
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      first_name: "",
+      last_name: "",
       email: "",
       password: ""
     };
@@ -38,13 +35,14 @@ class Login extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    this.props.userLogin(this.state);
+    this.props.userSignUp(this.state);
 
     this.setState({
+      first_name: "",
+      last_name: "",
       email: "",
       password: ""
     });
-    
   };
 
   render() {
@@ -56,13 +54,31 @@ class Login extends Component {
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="teal" textAlign="center">
-            Log-in to your account
+            Sign Up For An Account
           </Header>
-          <Form size="large" onSubmit={this.onSubmit}>
+          <Form loading={this.props.auth.isLoading ? true : false} size="large" onSubmit={this.onSubmit}>
             <Segment stacked>
               <Form.Input
                 fluid
                 icon="user"
+                iconPosition="left"
+                placeholder="First Name"
+                name="first_name"
+                value={this.state.first_name}
+                onChange={this.onChange}
+              />
+              <Form.Input
+                fluid
+                icon="user"
+                iconPosition="left"
+                placeholder="Last Name"
+                name="last_name"
+                value={this.state.last_name}
+                onChange={this.onChange}
+              />
+              <Form.Input
+                fluid
+                icon="mail"
                 iconPosition="left"
                 placeholder="E-mail address"
                 type="email"
@@ -80,31 +96,25 @@ class Login extends Component {
                 value={this.state.password}
                 onChange={this.onChange}
               />
-
               <Button color="teal" fluid size="large">
-                Login
+                Sign Up
               </Button>
             </Segment>
           </Form>
-          {this.props.auth.showLoginError && (
+          {this.props.auth.showSignupError && (
             <Message
-              warning
-              header="Could you check something!"
-              content="Incorrect email or password."
+              error
+              header="Action Forbidden"
+              content="You can only sign up for an account once with a given e-mail address."
             />
           )}
-          <Message>
-            New to NutriScan? <a href="#signup">Sign Up</a>
-          </Message>
         </Grid.Column>
       </Grid>
     );
   }
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Login)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);

@@ -11,7 +11,7 @@ const login = async (email, password) => {
 
 const signup = async (first_name, last_name, email, password) => {
   const response = await axios.post(
-    `${process.env.REACT_APP_BASE_URL}/api/users/login`,
+    `${process.env.REACT_APP_BASE_URL}/api/users/signup`,
     { first_name, last_name, email, password }
   );
 

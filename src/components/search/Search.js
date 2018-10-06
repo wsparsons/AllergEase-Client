@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Button, Form, Grid, Header, Message } from "semantic-ui-react";
-import { searchBarcode } from "../actions/search";
+import { searchBarcode } from "../../actions/search.actions";
 import ProductFound from "./ProductFound";
 
 const mapStateToProps = ({ search, auth }) => ({
@@ -85,9 +85,7 @@ class Search extends Component {
   }
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Search)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search);

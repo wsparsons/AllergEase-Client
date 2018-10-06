@@ -40,9 +40,7 @@ class ProductFound extends Component {
   }
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    null
-  )(ProductFound)
-);
+export default connect(
+  mapStateToProps,
+  null
+)(ProductFound);
