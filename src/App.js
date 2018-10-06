@@ -26,13 +26,11 @@ class App extends Component {
 
   componentDidMount = () => {
     this.props.verify();
-    this.props.getAllAllergens()
   };
 
   render() {
     return (
       <div>
-        {/* <NavBar /> */}
         <ResponsiveContainer>
           <Switch>
             <Route exact path="/home" component={HomepageContainer} />

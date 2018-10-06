@@ -47,7 +47,7 @@ class Login extends Component {
 
   render() {
     return (
-      <Segment style={{ padding: "5em 0em" }} vertical>
+      <Segment style={{ padding: "10em 0em" }} vertical>
         <Grid
           textAlign="center"
           style={{ height: "100%" }}

@@ -54,7 +54,7 @@ const HomepageContainer = () => {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column textAlign="center">
-              <Button size="huge" as={Link} to="/allergens">
+              <Button size="huge" as={Link} to="/allergens" >
                 Check Out The Allergens
               </Button>
             </Grid.Column>

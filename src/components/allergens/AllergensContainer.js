@@ -13,15 +13,15 @@ import {
 import { getAllAllergens } from "../../actions/allergens.actions";
 import { bindActionCreators } from "redux";
 import cornImage from "../../images/corn-crop.jpg";
-// import eggImage from "../../images/egg-crop.jpg";
-// import fishImage from "../../images/fish-crop.jpg";
-// import milkImage from "../../images/milk-crop.jpg";
-// import peanutImage from "../../images/peanut-crop.jpg";
-// import sesameImage from "../../images/sesame-crop.jpg";
-// import soyImage from "../../images/soy-crop.jpg";
-// import sulphiteImage from "../../images/sulphite-crop.jpg";
-// import treenutImage from "../../images/treenut-crop.jpg";
-// import wheatImage from "../../images/wheat-crop.jpg";
+import eggImage from "../../images/egg-crop.jpg";
+import fishImage from "../../images/fish-crop.jpg";
+import milkImage from "../../images/milk-crop.jpg";
+import peanutImage from "../../images/peanut-crop.jpg";
+import sesameImage from "../../images/sesame-crop.jpg";
+import soyImage from "../../images/soy-crop.jpg";
+import sulphiteImage from "../../images/sulphite-crop.jpg";
+import treenutImage from "../../images/treenut-crop.jpg";
+import wheatImage from "../../images/wheat-crop.jpg";
 import AllergenAliases from "./AllergensAliases";
 
 const mapStateToProps = ({ allergens }) => ({ allergens });
@@ -41,15 +41,60 @@ class AllergensContainer extends Component {
     const { index } = titleProps;
     const { activeIndex } = this.state;
     const newIndex = activeIndex === index ? -1 : index;
-
+    const element = document.getElementById(`allergen${index}`);
+    element.scrollIntoView({behavior: "smooth", block: "nearest"});
+    
     this.setState({ activeIndex: newIndex });
   };
 
   componentDidMount() {
     this.props.getAllAllergens();
+    window.scrollTo(0, 0)
   }
 
   render() {
+    let photos = [cornImage, eggImage, fishImage, milkImage, peanutImage, sesameImage, soyImage, sulphiteImage, treenutImage, wheatImage ]
+
+    let allergensallergens = this.props.allergens.allAllergens.map(allergen => {
+      return (
+        <Grid container stackable verticalAlign="middle" key={allergen.id} >
+          <Grid.Row id={`allergen${allergen.id - 1}`} >
+            <Grid.Column width={9}>
+              <Header as="h3" style={{ fontSize: "2em" }} >
+                {allergen.allergy.toUpperCase()}
+              </Header>
+              <Accordion fluid styled>
+                <Accordion.Title
+                  active={this.state.activeIndex === allergen.id - 1}
+                  index={allergen.id - 1}
+                  onClick={this.handleClick}
+                >
+                  <Icon name="dropdown" />
+                  What are the aliases?
+                </Accordion.Title>
+                <Accordion.Content
+                  active={this.state.activeIndex === allergen.id - 1}
+                >
+                  <p>
+                    {allergen.aliases.map(
+                      (alias, index) => (index ? ", " : "") + alias.description
+                    )}
+                  </p>
+                </Accordion.Content>
+              </Accordion>
+            </Grid.Column>
+            <Grid.Column floated="right" width={6}>
+              <Image
+               
+                circular
+                size="large"
+                src={photos[allergen.id - 1]}
+              />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      );
+    });
     return (
       <div>
         <Segment style={{ padding: "8em 0em" }} vertical id="homepageHeader">
@@ -61,50 +106,20 @@ class AllergensContainer extends Component {
             </Header>
             <Header size="medium" textAlign="center">
               <Header.Content id="homepageHeaderSubheader">
-                We have identify the 10 most common allergens and their aliases.
+                We've identified the 10 most common allergens and their aliases.
               </Header.Content>
             </Header>
           </Container>
         </Segment>
         <Segment style={{ padding: "2em" }} vertical>
-          <Grid container stackable verticalAlign="middle">
-            <Grid.Row>
-              <Grid.Column width={8}>
-                <Header as="h3" style={{ fontSize: "2em" }}>
-                  Corn
-                </Header>
-                <Accordion fluid styled>
-                  <Accordion.Title
-                    active={this.state.activeIndex === 0}
-                    index={0}
-                    onClick={this.handleClick}
-                  >
-                    <Icon name="dropdown" />
-                    What are the aliases?
-                  </Accordion.Title>
-                  <Accordion.Content active={this.state.activeIndex === 0}>
-                    <p>
-                      A dog is a type of domesticated animal. Known for its
-                      loyalty and faithfulness, it can be found as a welcome
-                      guest in many households across the world.
-                    </p>
-                  </Accordion.Content>
-                </Accordion>
-              </Grid.Column>
-              <Grid.Column floated="right" width={6}>
-                <Image circular size="large" src={cornImage} />
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
+          {allergensallergens}
         </Segment>
       </div>
     );
   }
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(AllergensContainer)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AllergensContainer);
