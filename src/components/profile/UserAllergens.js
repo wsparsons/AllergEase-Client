@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import {
-  List,
-  Segment,
-  Label,
-  Image,
-  Header,
-  Icon
-} from "semantic-ui-react";
+import { List, Segment, Label, Image, Header, Icon } from "semantic-ui-react";
 import {
   getUserAllergens,
   removeUserAllergen
@@ -34,10 +27,6 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({ getUserAllergens, removeUserAllergen }, dispatch);
 
 class UserAllergens extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onClick = userAllergen => {
     this.props.removeUserAllergen(this.props.auth.user.userId, userAllergen.id);
   };
@@ -75,7 +64,7 @@ class UserAllergens extends Component {
       }
     );
     return (
-      <Segment color="red">
+      <Segment stacked color="teal">
         <Header as="h2" textAlign="center" color="teal">
           {this.props.auth.user.first_name}
           's Allergen

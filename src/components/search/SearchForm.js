@@ -5,6 +5,7 @@ import {
   Button,
   Container,
   Form,
+  Icon,
   Grid,
   Header,
   Message,
@@ -68,13 +69,17 @@ class Search extends Component {
                     size="large"
                   />
                   <Button
-                    color="teal"
+                    animated
                     fluid
+                    color="teal"
                     size="large"
                     loading={this.props.search.searchLoading ? true : false}
                     disabled={this.state.barcode.length > 0 ? false : true}
                   >
-                    Search
+                    <Button.Content visible>Search</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="search" />
+                    </Button.Content>
                   </Button>
                 </Segment>
               </Form>

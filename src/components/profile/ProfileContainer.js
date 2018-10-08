@@ -6,10 +6,6 @@ import AllergensList from "./AllergensList";
 import UserAllergens from "./UserAllergens";
 
 class ProfileContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount = () => {
     window.scrollTo(0, 0);
   };
