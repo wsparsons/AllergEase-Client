@@ -17,7 +17,7 @@ export const userLogin = ({ email, password }) => {
       let response = await authModel.login(email, password);
       let token = response.data.token;
 
-      localStorage.setItem(process.env.REACT_APP_TOKEN_NAME, token);
+      localStorage.setItem(`AllergEase Token`, token);
 
       dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data.user });
     } catch (err) {
@@ -40,7 +40,7 @@ export const userSignUp = ({ first_name, last_name, email, password }) => {
       console.log(response);
       let token = response.data.token;
 
-      localStorage.setItem(process.env.REACT_APP_TOKEN_NAME, token);
+      localStorage.setItem(`AllergEase Token`, token);
 
       dispatch({ type: USER_SIGNUP_SUCCESS, payload: response.data.user });
     } catch (err) {
@@ -59,7 +59,7 @@ export const verify = () => {
 };
 
 export const userLogout = () => {
-  localStorage.removeItem(process.env.REACT_APP_TOKEN_NAME);
+  localStorage.removeItem(`AllergEase Token`);
   return async dispatch => {
     dispatch({ type: USER_LOGOUT });
   };
