@@ -4,7 +4,7 @@ const BASE_URL= `https://allergease.herokuapp.com`
 
 const login = async (email, password) => {
   const response = await axios.post(
-    `${process.env.REACT_APP_BASE_URL}/api/users/login`,
+    `${BASE_URL}/api/users/login`,
     { email, password }
   );
 
@@ -13,7 +13,7 @@ const login = async (email, password) => {
 
 const signup = async (first_name, last_name, email, password) => {
   const response = await axios.post(
-    `${process.env.REACT_APP_BASE_URL}/api/users/signup`,
+    `${BASE_URL}/api/users/signup`,
     { first_name, last_name, email, password }
   );
 
@@ -26,7 +26,7 @@ const verify = async () => {
   
   try {
     const response = await axios(
-      `${process.env.REACT_APP_BASE_URL}/api/users/verify`,
+      `${BASE_URL}/api/users/verify`,
       {
         method: 'GET',
         headers: {

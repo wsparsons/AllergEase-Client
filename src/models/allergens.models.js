@@ -3,14 +3,14 @@ const BASE_URL= `https://allergease.herokuapp.com`
 
 const getAllAllergens = async () => {
   const response = await axios.get(
-    `${process.env.REACT_APP_BASE_URL}/api/allergens`
+    `${BASE_URL}/api/allergens`
   );
   return response.data.response;
 };
 
 const getOneAllergen = async id => {
   const response = await axios.get(
-    `${process.env.REACT_APP_BASE_URL}/api/allergens/${id}`
+    `${BASE_URL}/api/allergens/${id}`
   );
   return response.data.response;
 };
