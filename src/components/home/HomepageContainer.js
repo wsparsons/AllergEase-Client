@@ -8,7 +8,7 @@ import {
   Image,
   Segment
 } from "semantic-ui-react";
-import cornImage from "../../images/corn-crop.jpg";
+import packagedfood from "../../images/packagedfood.jpg";
 import { connect } from "react-redux";
 
 const mapStateToProps = ({ auth }) => ({ auth });
@@ -38,26 +38,22 @@ class HomepageContainer extends Component {
         <Segment style={{ padding: "2em" }} vertical>
           <Grid container stackable verticalAlign="middle">
             <Grid.Row>
-              <Grid.Column width={9} textAlign="center">
+              <Grid.Column width={7} textAlign="center">
                 <Header as="h3" style={{ fontSize: "2em" }} color="teal">
-                  At AllergEase
+                  Uncover Disguised Allergens In Packaged Food
                 </Header>
                 <p style={{ fontSize: "1.33em" }}>
-                  We can help you identify your allergen aliases.
+                  If you have a food allergy, you may feel that packaged food is no longer your friend. But knowledge is power!
                 </p>
-                <Header as="h3" style={{ fontSize: "2em" }} color="teal">
-                  Food Allergies
-                </Header>
                 <p style={{ fontSize: "1.33em" }}>
-                  If you have a food allergy, you may feel that packaged food is
-                  no longer your friend. But knowledge is power. Learn how you
-                  can identify your food sensitivity and spot your triggers,
-                  even when they appear in disguise. All you need to do is enter
-                  the barcode of the packaged food.
+                  Learn how you can spot trigger foods for your loved ones, even when ingredients are opaque.
+                </p>
+                <p style={{ fontSize: "1.33em" }}>
+                  All you need to do is select the allergen(s) and enter the barcode number of the packaged food. 
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={6}>
-                <Image circular size="large" src={cornImage} />
+                <Image circular size="large" src={packagedfood} />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>

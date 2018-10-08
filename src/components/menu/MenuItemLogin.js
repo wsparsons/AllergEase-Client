@@ -8,7 +8,7 @@ const MenuItemLogin = () => {
     <Menu.Item as={Link} to="/login">
       <Icon
         inverted
-        color="black"
+        color="teal"
         name="sign-in"
         style={{ marginRight: "0.5em" }}
       />

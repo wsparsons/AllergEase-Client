@@ -1,2 +1,2 @@
-# NutriScan (Client)
-A react application displaying various # NutriScan-Client
+# AllergEase (Client)
+A react application displaying various # AllergEase-Client

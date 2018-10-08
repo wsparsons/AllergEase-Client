@@ -19,7 +19,7 @@ const signup = async (first_name, last_name, email, password) => {
 };
 
 const verify = async () => {
-  let token = localStorage.getItem("NutriScan Token");
+  let token = localStorage.getItem("AllergEase Token");
   if (!token) return false;
   
   try {

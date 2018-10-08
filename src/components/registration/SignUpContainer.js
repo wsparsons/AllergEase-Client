@@ -6,21 +6,24 @@ import {
   Container,
   Form,
   Grid,
+  Icon,
   Header,
   Message,
   Segment
 } from "semantic-ui-react";
-import { userLogin } from "../../actions/auth.actions";
+import { userSignUp } from "../../actions/auth.actions";
 
 const mapStateToProps = ({ auth }) => ({ auth });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ userLogin }, dispatch);
+  bindActionCreators({ userSignUp }, dispatch);
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      first_name: "",
+      last_name: "",
       email: "",
       password: ""
     };
@@ -38,9 +41,11 @@ class Login extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    this.props.userLogin(this.state);
+    this.props.userSignUp(this.state);
 
     this.setState({
+      first_name: "",
+      last_name: "",
       email: "",
       password: ""
     });
@@ -48,7 +53,7 @@ class Login extends Component {
 
   render() {
     return (
-      <Segment style={{ padding: "10em 0em" }} vertical id="loginContainer">
+      <Segment style={{ padding: "10em 0em" }} vertical id="signupContainer">
         <Container text>
           <Grid
             textAlign="center"
@@ -56,8 +61,13 @@ class Login extends Component {
             verticalAlign="middle"
           >
             <Grid.Column style={{ maxWidth: 450 }}>
-              <Header as="h2" color="teal" textAlign="center">
-                Log In To Your Account
+              <Header
+                as="h1"
+                color="teal"
+                textAlign="center"
+                id="signupContainerHeader"
+              >
+                Sign Up For An Account
               </Header>
               <Form
                 loading={this.props.auth.isLoading ? true : false}
@@ -65,6 +75,24 @@ class Login extends Component {
                 onSubmit={this.onSubmit}
               >
                 <Segment stacked>
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="First Name"
+                    name="first_name"
+                    value={this.state.first_name}
+                    onChange={this.onChange}
+                  />
+                  <Form.Input
+                    fluid
+                    icon="user"
+                    iconPosition="left"
+                    placeholder="Last Name"
+                    name="last_name"
+                    value={this.state.last_name}
+                    onChange={this.onChange}
+                  />
                   <Form.Input
                     fluid
                     icon="mail"
@@ -85,16 +113,19 @@ class Login extends Component {
                     value={this.state.password}
                     onChange={this.onChange}
                   />
-                  <Button color="teal" fluid size="large">
-                    Login
+                  <Button animated color="teal" fluid size="large">
+                    <Button.Content visible>Sign Up</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="signup" />
+                    </Button.Content>{" "}
                   </Button>
                 </Segment>
               </Form>
-              {this.props.auth.showLoginError && (
+              {this.props.auth.showSignupError && (
                 <Message
-                  warning
-                  header="Could you check something!"
-                  content="Incorrect email or password."
+                  error
+                  header="Action Forbidden"
+                  content="You can only sign up for an account once with a given e-mail address."
                 />
               )}
             </Grid.Column>

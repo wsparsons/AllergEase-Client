@@ -20,10 +20,7 @@ import MenuItemSignIn from "../menu/MenuItemSignUp";
 import MenuButtonLogout from "../menu/MenuButtonLogout";
 import MenuButtonLogin from "../menu/MenuButtonLogin";
 import MenuButtonSignUp from "../menu/MenuButtonSignUp";
-
-import HomepageHeading from "../home/HomepageHeading";
-import HomepageLayout from "../home/HomepageContainer";
-import Footer from "../shared/Footer";
+import Footer from "./Footer";
 
 const mapStateToProps = ({ auth }) => ({ auth });
 

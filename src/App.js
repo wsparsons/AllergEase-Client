@@ -5,14 +5,13 @@ import AuthenticatedRoute from "./components/helper/AuthenticatedRoute";
 import HomepageContainer from "./components/home/HomepageContainer";
 import AllergensContainer from "./components/allergens/AllergensContainer";
 import ResponsiveContainer from "./components/responsive/ResponsiveContainer";
-import Login from "./components/registration/Login";
-import SignUp from "./components/registration/SignUp";
-import SearchContainer from './components/search/SearchContainer'
-import Profile from "./components/profile/Profile";
+import LoginContainer from "./components/registration/LoginContainer";
+import SignUpContainer from "./components/registration/SignUpContainer";
+import SearchContainer from "./components/search/SearchContainer";
+import ProfileContainer from "./components/profile/ProfileContainer";
 import { verify } from "./actions/auth.actions";
 import { getAllAllergens } from "./actions/allergens.actions";
 import { bindActionCreators } from "redux";
-// import Search from "./components/search/Search";
 
 const mapStateToProps = ({ auth, allergens }) => ({ auth, allergens });
 
@@ -48,7 +47,7 @@ class App extends Component {
               exact
               path="/profile"
               render={() => {
-                return <Profile />;
+                return <ProfileContainer />;
               }}
             />
             <Route
@@ -65,7 +64,7 @@ class App extends Component {
                       }
                     />
                   );
-                return <Login />;
+                return <LoginContainer />;
               }}
             />
             <Route
@@ -82,7 +81,7 @@ class App extends Component {
                       }
                     />
                   );
-                return <SignUp />;
+                return <SignUpContainer />;
               }}
             />
             <Redirect to="/home" />

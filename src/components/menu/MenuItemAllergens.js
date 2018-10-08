@@ -7,7 +7,7 @@ const MenuItemAllergens = () => {
     <Menu.Item as={Link} to="/allergens">
       <Icon
         inverted
-        color="black"
+        color="teal"
         name="food"
         style={{ marginRight: "0.5em" }}
       />

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import { Button, Container, Header, Icon } from "semantic-ui-react";
@@ -7,7 +7,7 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as="h1"
-      content="NutriScan"
+      content="AllergEase"
       inverted
       style={{
         fontSize: mobile ? "2em" : "4em",
