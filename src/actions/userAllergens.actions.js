@@ -2,9 +2,9 @@ import userAllergensModel from "../models/userAllergens.models";
 
 export const GET_USER_ALLERGENS = "GET_USER_ALLERGENS";
 
-export const getUserAllergens = userId => {
+export const getAllUserAllergens = userId => {
   return async dispatch => {
-    const response = await userAllergensModel.getUserAllergens(userId);
+    const response = await userAllergensModel.getAllUserAllergens(userId);
 
     dispatch({
       type: GET_USER_ALLERGENS,
@@ -13,11 +13,11 @@ export const getUserAllergens = userId => {
   };
 };
 
-export const addUserAllergen = (userId, userAllergenId) => {
+export const createUserAllergen = (userId, userAllergenId) => {
   return async dispatch => {
-    await userAllergensModel.addUserAllergen(userId, userAllergenId);
+    await userAllergensModel.createUserAllergen(userId, userAllergenId);
 
-    const response = await userAllergensModel.getUserAllergens(userId);
+    const response = await userAllergensModel.getAllUserAllergens(userId);
 
     dispatch({
       type: GET_USER_ALLERGENS,
@@ -26,14 +26,14 @@ export const addUserAllergen = (userId, userAllergenId) => {
   };
 };
 
-export const removeUserAllergen = (userId, userAllergenId) => {
+export const deleteUserAllergen = (userId, userAllergenId) => {
   return async dispatch => {
-    await userAllergensModel.removeUserAllergen(
+    await userAllergensModel.deleteUserAllergen(
       userId,
       userAllergenId
     );
 
-    const response = await userAllergensModel.getUserAllergens(userId);
+    const response = await userAllergensModel.getAllUserAllergens(userId);
 
     dispatch({
       type: GET_USER_ALLERGENS,

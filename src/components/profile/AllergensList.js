@@ -11,8 +11,8 @@ import {
 } from "semantic-ui-react";
 import { getAllAllergens } from "../../actions/allergens.actions";
 import {
-  getUserAllergens,
-  addUserAllergen
+  getAllUserAllergens,
+  createUserAllergen
 } from "../../actions/userAllergens.actions";
 import cornImage from "../../images/corn-crop.jpg";
 import eggImage from "../../images/egg-crop.jpg";
@@ -33,18 +33,18 @@ const mapStateToProps = ({ auth, allergens, userAllergens }) => ({
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
-    { getAllAllergens, getUserAllergens, addUserAllergen },
+    { getAllAllergens, getAllUserAllergens, createUserAllergen },
     dispatch
   );
 
 class AllergensList extends Component {
   componentDidMount() {
     this.props.getAllAllergens();
-    this.props.getUserAllergens(this.props.auth.user.userId);
+    this.props.getAllUserAllergens(this.props.auth.user.userId);
   }
 
   onClick = allergen => {
-    this.props.addUserAllergen(this.props.auth.user.userId, allergen.id);
+    this.props.createUserAllergen(this.props.auth.user.userId, allergen.id);
   };
 
   render() {

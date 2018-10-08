@@ -3,8 +3,8 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { List, Segment, Label, Image, Header, Icon } from "semantic-ui-react";
 import {
-  getUserAllergens,
-  removeUserAllergen
+  getAllUserAllergens,
+  deleteUserAllergen
 } from "../../actions/userAllergens.actions";
 import cornImage from "../../images/corn-crop.jpg";
 import eggImage from "../../images/egg-crop.jpg";
@@ -24,11 +24,11 @@ const mapStateToProps = ({ auth, allergens, userAllergens }) => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ getUserAllergens, removeUserAllergen }, dispatch);
+  bindActionCreators({ getAllUserAllergens, deleteUserAllergen }, dispatch);
 
 class UserAllergens extends Component {
   onClick = userAllergen => {
-    this.props.removeUserAllergen(this.props.auth.user.userId, userAllergen.id);
+    this.props.deleteUserAllergen(this.props.auth.user.userId, userAllergen.id);
   };
 
   render() {
