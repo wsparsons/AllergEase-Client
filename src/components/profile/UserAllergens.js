@@ -54,7 +54,7 @@ class UserAllergens extends Component {
                 <Image src={photos[userAllergen.allergen_id - 1]} />
                 <Icon
                   link
-                  name="x"
+                  name="times"
                   onClick={() => this.onClick(userAllergen)}
                 />
                 {userAllergen.allergy.toUpperCase()}
