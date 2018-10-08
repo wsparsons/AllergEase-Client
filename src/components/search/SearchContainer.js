@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Container, Header, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Search from "./Search";
+import SearchForm from "./SearchForm";
 
 const mapStateToProps = ({ auth }) => ({ auth });
 
@@ -24,13 +23,13 @@ class SearchContainer extends Component {
             </Header>
             <Header size="medium" textAlign="center">
               <Header.Content id="homepageHeaderSubheader">
-                Search The Barcode Of A Packaged Food
+                Search The Barcode Number Of A Packaged Food
               </Header.Content>
             </Header>
           </Container>
         </Segment>
         <Segment style={{ padding: "2em" }} vertical>
-          <Search />
+          <SearchForm />
         </Segment>
       </div>
     );

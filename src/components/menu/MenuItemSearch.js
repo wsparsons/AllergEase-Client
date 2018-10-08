@@ -8,7 +8,7 @@ const MenuItemSearch = () => {
     <Menu.Item as={Link} to="/search">
       <Icon
         inverted
-        color="black"
+        color="teal"
         name="search"
         style={{ marginRight: "0.5em" }}
       />

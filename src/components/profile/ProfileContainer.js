@@ -5,7 +5,7 @@ import { Container, Header, Grid, Segment } from "semantic-ui-react";
 import AllergensList from "./AllergensList";
 import UserAllergens from "./UserAllergens";
 
-class Profile extends Component {
+class ProfileContainer extends Component {
   constructor(props) {
     super(props);
   }
@@ -52,5 +52,5 @@ export default withRouter(
   connect(
     null,
     null
-  )(Profile)
+  )(ProfileContainer)
 );

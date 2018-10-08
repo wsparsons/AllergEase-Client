@@ -8,7 +8,7 @@ const MenuItemProfile = () => {
     <Menu.Item as={Link} to="/profile">
       <Icon
         inverted
-        color="black"
+        color="teal"
         name="user"
         style={{ marginRight: "0.5em" }}
       />

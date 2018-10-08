@@ -8,7 +8,6 @@ import {
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
 import MenuItemHome from "../menu/MenuItemHome";
 import MenuItemAllergens from "../menu/MenuItemAllergens";
 import MenuItemProfile from "../menu/MenuItemProfile";
@@ -16,9 +15,7 @@ import MenuItemSearch from "../menu/MenuItemSearch";
 import MenuButtonLogout from "../menu/MenuButtonLogout";
 import MenuButtonLogin from "../menu/MenuButtonLogin";
 import MenuButtonSignUp from "../menu/MenuButtonSignUp";
-
-import HomepageHeading from "../home/HomepageHeading";
-import Footer from "../shared/Footer";
+import Footer from "./Footer";
 
 const mapStateToProps = ({ auth }) => ({ auth });
 

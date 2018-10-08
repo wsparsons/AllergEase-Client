@@ -8,7 +8,7 @@ const MenuItemHome = () => {
     <Menu.Item as={Link} to="/home">
       <Icon
         inverted
-        color="black"
+        color="teal"
         name="barcode"
         style={{ marginRight: "0.5em" }}
       />

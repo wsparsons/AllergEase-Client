@@ -13,7 +13,7 @@ const MenuItemLogout = ({ userLogout }) => {
     <Menu.Item onClick={this.onClick}>
       <Icon
         inverted
-        color="black"
+        color="teal"
         name="sign-out"
         style={{ marginRight: "0.5em" }}
         onClick={() => userLogout()}

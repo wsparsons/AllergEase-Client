@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { Button,Container, Form, Grid, Header, Message } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Form,
+  Grid,
+  Header,
+  Message,
+  Segment
+} from "semantic-ui-react";
 import { searchBarcode } from "../../actions/search.actions";
 import ProductFound from "./ProductFound";
 
@@ -41,13 +49,13 @@ class Search extends Component {
           style={{ height: "100%" }}
           verticalAlign="middle"
         >
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <Grid.Row centered>
-              <Grid.Column width={8}>
-                <Header as="h2" color="teal" textAlign="center">
-                  Search Barcode Number
-                </Header>
-                <Form onSubmit={this.onSubmit}>
+          <Grid.Row>
+            <Grid.Column style={{ maxWidth: 450 }}>
+              <Header as="h2" color="teal" textAlign="center">
+                Search Barcode Number
+              </Header>
+              <Form onSubmit={this.onSubmit}>
+                <Segment stacked>
                   <Form.Input
                     fluid
                     icon="barcode"
@@ -68,22 +76,18 @@ class Search extends Component {
                   >
                     Search
                   </Button>
-                </Form>
-                {this.props.search.showSearchError ? (
-                  <Message
-                    warning
-                    header="Could Not Find Product"
-                    align="center"
-                  />
-                ) : null}
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-              <Grid.Column width={14}>
-                {this.props.search.displayProduct ? <ProductFound /> : null}
-              </Grid.Column>
-            </Grid.Row>
-          </Grid.Column>
+                </Segment>
+              </Form>
+              {this.props.search.showSearchError ? (
+                <Message
+                  warning
+                  header="Could Not Find Product"
+                  align="center"
+                />
+              ) : null}
+            </Grid.Column>
+          </Grid.Row>
+          {this.props.search.displayProduct ? <ProductFound /> : null}
         </Grid>
       </Container>
     );
