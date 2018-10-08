@@ -20,9 +20,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount = () => {
     this.props.verify();

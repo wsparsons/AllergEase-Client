@@ -5,6 +5,7 @@ import {
   Container,
   Grid,
   Header,
+  Icon,
   Image,
   Segment
 } from "semantic-ui-react";
@@ -43,13 +44,16 @@ class HomepageContainer extends Component {
                   Uncover Disguised Allergens In Packaged Food
                 </Header>
                 <p style={{ fontSize: "1.33em" }}>
-                  If you have a food allergy, you may feel that packaged food is no longer your friend. But knowledge is power!
+                  If you have a food allergy, you may feel that packaged food is
+                  no longer your friend. But knowledge is power!
                 </p>
                 <p style={{ fontSize: "1.33em" }}>
-                  Learn how you can spot trigger foods for your loved ones, even when ingredients are opaque.
+                  Learn how you can spot trigger foods for your loved ones, even
+                  when ingredients are opaque.
                 </p>
                 <p style={{ fontSize: "1.33em" }}>
-                  All you need to do is select the allergen(s) and enter the barcode number of the packaged food. 
+                  All you need to do is select the allergen(s) and enter the
+                  barcode number of the packaged food.
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={6}>
@@ -59,8 +63,19 @@ class HomepageContainer extends Component {
             <Grid.Row>
               {this.props.auth.isLoggedIn && (
                 <Grid.Column textAlign="center">
-                  <Button size="huge" as={Link} to="/allergens">
-                    Check Out The Allergens
+                  <Button
+                    animated
+                    color="teal"
+                    size="big"
+                    as={Link}
+                    to="/allergens"
+                  >
+                    <Button.Content visible>
+                      Check Out The Allergens
+                    </Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="food" />
+                    </Button.Content>
                   </Button>
                 </Grid.Column>
               )}
@@ -69,8 +84,17 @@ class HomepageContainer extends Component {
                   <Header as="h3" style={{ fontSize: "2em" }} color="teal">
                     Sign Up To Get Started
                   </Header>
-                  <Button size="huge" as={Link} to="/signup">
-                    Sign Up
+                  <Button
+                    animated
+                    color="teal"
+                    size="big"
+                    as={Link}
+                    to="/signup"
+                  >
+                    <Button.Content visible>Sign Up</Button.Content>
+                    <Button.Content hidden>
+                      <Icon name="signup" />
+                    </Button.Content>
                   </Button>
                 </Grid.Column>
               )}

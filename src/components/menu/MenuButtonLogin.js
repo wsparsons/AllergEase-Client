@@ -8,6 +8,7 @@ const MenuButtonLogin = ({ fixed }) => {
     <Button
       style={{ marginLeft: "0.5em" }}
       inverted={!fixed}
+      color="teal"
       animated
       as={Link}
       to="/login"

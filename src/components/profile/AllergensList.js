@@ -37,11 +37,7 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-class Allergens extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class AllergensList extends Component {
   componentDidMount() {
     this.props.getAllAllergens();
     this.props.getUserAllergens(this.props.auth.user.userId);
@@ -92,7 +88,7 @@ class Allergens extends Component {
     });
 
     return (
-      <Segment color="green">
+      <Segment stacked color="green">
         <Header as="h2" textAlign="center" color="teal">
           Allergens
         </Header>
@@ -107,4 +103,4 @@ class Allergens extends Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Allergens);
+)(AllergensList);

@@ -113,7 +113,20 @@ class Login extends Component {
                     value={this.state.password}
                     onChange={this.onChange}
                   />
-                  <Button animated color="teal" fluid size="large">
+                  <Button
+                    animated
+                    color="teal"
+                    fluid
+                    size="large"
+                    disabled={
+                      this.state.first_name.length > 0 &&
+                      this.state.last_name.length > 0 &&
+                      this.state.email.length > 0 &&
+                      this.state.password.length > 0
+                        ? false
+                        : true
+                    }
+                  >
                     <Button.Content visible>Sign Up</Button.Content>
                     <Button.Content hidden>
                       <Icon name="signup" />

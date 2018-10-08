@@ -13,6 +13,7 @@ const MenuButtonLogout = ({ fixed, userLogout }) => {
     <Button
       style={{ marginLeft: "0.5em" }}
       inverted={!fixed}
+      color="teal"
       onClick={() => userLogout()}
       animated
     >
