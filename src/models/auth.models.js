@@ -1,4 +1,6 @@
 import axios from "axios";
+const BASE_URL= `https://allergease.herokuapp.com`
+
 
 const login = async (email, password) => {
   const response = await axios.post(

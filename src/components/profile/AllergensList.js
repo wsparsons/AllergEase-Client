@@ -77,7 +77,6 @@ class AllergensList extends Component {
               <Icon
                 link
                 name="plus"
-                disabled
                 onClick={() => this.onClick(allergen)}
               />
               {allergen.allergy.toUpperCase()}
@@ -88,7 +87,7 @@ class AllergensList extends Component {
     });
 
     return (
-      <Segment stacked color="green">
+      <Segment stacked color="red">
         <Header as="h2" textAlign="center" color="teal">
           Allergens
         </Header>

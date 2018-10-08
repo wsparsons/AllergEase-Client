@@ -52,11 +52,12 @@ class UserAllergens extends Component {
             <List.Header verticalalign="middle">
               <Label image size="big">
                 <Image src={photos[userAllergen.allergen_id - 1]} />
-                {userAllergen.allergy.toUpperCase()}
                 <Icon
-                  name="delete"
+                  link
+                  name="x"
                   onClick={() => this.onClick(userAllergen)}
                 />
+                {userAllergen.allergy.toUpperCase()}
               </Label>
             </List.Header>
           </List.Item>

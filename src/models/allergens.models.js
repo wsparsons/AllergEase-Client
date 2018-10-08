@@ -1,4 +1,5 @@
 import axios from "axios";
+const BASE_URL= `https://allergease.herokuapp.com`
 
 const getAllAllergens = async () => {
   const response = await axios.get(
