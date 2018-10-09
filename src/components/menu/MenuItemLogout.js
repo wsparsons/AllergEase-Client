@@ -10,13 +10,12 @@ const mapDispatchToProps = dispatch => {
 
 const MenuItemLogout = ({ userLogout }) => {
   return (
-    <Menu.Item onClick={this.onClick}>
+    <Menu.Item onClick={() => userLogout()}>
       <Icon
         inverted
         color="teal"
         name="sign-out"
         style={{ marginRight: "0.5em" }}
-        onClick={() => userLogout()}
       />
       Logout
     </Menu.Item>

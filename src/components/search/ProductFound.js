@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Grid, Item, Icon } from "semantic-ui-react";
+import { bindActionCreators } from "redux";
+import { searchClear } from "../../actions/search.actions";
 
 const mapStateToProps = ({ search }) => ({ search });
-
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ searchClear }, dispatch);
 class ProductFound extends Component {
+  componentWillUnmount() {
+    this.props.searchClear();
+  }
 
   render() {
     return this.props.search.searchResult.product ? (
@@ -18,7 +24,7 @@ class ProductFound extends Component {
                   src={this.props.search.searchResult.product.image}
                 />
                 <Item.Content verticalAlign="middle">
-                  <Item.Extra >
+                  <Item.Extra>
                     {this.props.search.searchResult.valence ? (
                       <Icon
                         circular
@@ -56,5 +62,5 @@ class ProductFound extends Component {
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(ProductFound);

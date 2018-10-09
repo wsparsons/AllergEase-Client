@@ -1,7 +1,8 @@
 import {
   POST_SEARCH_PENDING,
   POST_SEARCH_SUCCESS,
-  POST_SEARCH_FAILED
+  POST_SEARCH_FAILED,
+  POST_SEARCH_CLEAR
 } from "../actions/search.actions";
 
 let initialState = {
@@ -17,11 +18,35 @@ let initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case POST_SEARCH_PENDING:
-      return { ...state, searchLoading: true, showSearchError: false, searchResult: {} };
+      return {
+        ...state,
+        searchLoading: true,
+        showSearchError: false,
+        searchResult: {}
+      };
     case POST_SEARCH_SUCCESS:
-      return { ...state, displayProduct: true, searchLoading: false, showSearchError:false, searchResult: action.payload };
+      return {
+        ...state,
+        displayProduct: true,
+        searchLoading: false,
+        showSearchError: false,
+        searchResult: action.payload
+      };
     case POST_SEARCH_FAILED:
-      return { ...state, searchLoading: false, showSearchError: true, searchResult: {} };
+      return {
+        ...state,
+        searchLoading: false,
+        showSearchError: true,
+        searchResult: {}
+      };
+    case POST_SEARCH_CLEAR:
+      return {
+        ...state,
+        displayProduct: false,
+        showSearchError: false,
+        searchResult: {},
+        searchLoading: false
+      };
     default:
       return state;
   }

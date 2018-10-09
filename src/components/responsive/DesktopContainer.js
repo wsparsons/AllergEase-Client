@@ -40,9 +40,8 @@ class DesktopContainer extends Component {
         >
           <Segment
             inverted
-            textAlign="center"
-            style={{ minHeight: 80, padding: "1em 0em" }}
             vertical
+            id="desktopMenuSegment"
           >
             <Menu
               fixed={this.state.fixed ? "top" : null}
@@ -70,12 +69,10 @@ class DesktopContainer extends Component {
                 </Menu.Item>
               </Container>
             </Menu>
-            {/* <HomepageHeading /> */}
           </Segment>
         </Visibility>
 
         {this.props.view}
-        {/* <HomepageLayout /> */}
         <Footer />
       </Responsive>
     );

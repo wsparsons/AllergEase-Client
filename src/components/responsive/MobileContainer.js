@@ -62,13 +62,12 @@ class MobileContainer extends Component {
           <Sidebar.Pusher
             dimmed={this.state.sidebarOpened}
             onClick={this.handlePusherClick}
-            style={{ minHeight: "100vh" }}
+            id="mobileSidebarPush"
           >
             <Segment
               inverted
-              textAlign="center"
-              style={{ minHeight: 80, padding: "1em 0em" }}
               vertical
+              id="mobileMenuSegment"
             >
               <Container>
                 <Menu inverted pointing secondary size="large">
@@ -82,7 +81,6 @@ class MobileContainer extends Component {
                   </Menu.Item>
                 </Menu>
               </Container>
-              {/* <HomepageHeading mobile /> */}
             </Segment>
 
             {this.props.view}
