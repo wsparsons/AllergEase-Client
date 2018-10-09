@@ -31,12 +31,12 @@ const createUserAllergen = async (userId, userAllergenId) => {
   return response.data;
 };
 
-const deleteUserAllergen = async (userId, userAllergenId) => {
+const deleteUserAllergen = async (userId, userAllergenListId) => {
   let token = localStorage.getItem("AllergEase Token");
   if (!token) return false;
 
   const response = await axios.delete(
-    `${BASE_URL}/api/users/${userId}/allergens/${userAllergenId}`,
+    `${BASE_URL}/api/users/${userId}/allergens/${userAllergenListId}`,
     {
       method: "DELETE",
       headers: {

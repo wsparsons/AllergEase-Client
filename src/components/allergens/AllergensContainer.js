@@ -9,7 +9,7 @@ import {
   Image,
   Segment
 } from "semantic-ui-react";
-import { getAllAllergens } from "../../actions/allergens.actions";
+import { getAllAllergensAliases } from "../../actions/allergens.actions";
 import { bindActionCreators } from "redux";
 import cornImage from "../../images/corn-crop.jpg";
 import eggImage from "../../images/egg-crop.jpg";
@@ -25,7 +25,7 @@ import wheatImage from "../../images/wheat-crop.jpg";
 const mapStateToProps = ({ allergens }) => ({ allergens });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ getAllAllergens }, dispatch);
+  bindActionCreators({ getAllAllergensAliases }, dispatch);
 
 class AllergensContainer extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class AllergensContainer extends Component {
   };
 
   componentDidMount() {
-    this.props.getAllAllergens();
+    this.props.getAllAllergensAliases();
     window.scrollTo(0, 0);
   }
 

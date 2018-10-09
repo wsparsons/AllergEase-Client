@@ -26,11 +26,11 @@ export const createUserAllergen = (userId, userAllergenId) => {
   };
 };
 
-export const deleteUserAllergen = (userId, userAllergenId) => {
+export const deleteUserAllergen = (userId, userAllergenListId) => {
   return async dispatch => {
     await userAllergensModel.deleteUserAllergen(
       userId,
-      userAllergenId
+      userAllergenListId
     );
 
     const response = await userAllergensModel.getAllUserAllergens(userId);

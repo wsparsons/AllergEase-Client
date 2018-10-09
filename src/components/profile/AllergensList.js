@@ -9,7 +9,7 @@ import {
   Header,
   Icon
 } from "semantic-ui-react";
-import { getAllAllergens } from "../../actions/allergens.actions";
+import { getAllAllergensAliases } from "../../actions/allergens.actions";
 import {
   getAllUserAllergens,
   createUserAllergen
@@ -33,13 +33,13 @@ const mapStateToProps = ({ auth, allergens, userAllergens }) => ({
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
-    { getAllAllergens, getAllUserAllergens, createUserAllergen },
+    { getAllAllergensAliases, getAllUserAllergens, createUserAllergen },
     dispatch
   );
 
 class AllergensList extends Component {
   componentDidMount() {
-    this.props.getAllAllergens();
+    this.props.getAllAllergensAliases();
     this.props.getAllUserAllergens(this.props.auth.user.userId);
   }
 

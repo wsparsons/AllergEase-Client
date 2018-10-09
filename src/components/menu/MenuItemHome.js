@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const MenuItemHome = () => {
   return (
-    <Menu.Item as={Link} to="/home">
+    <Menu.Item as={Link} to="/">
       <Icon
         inverted
         color="teal"
