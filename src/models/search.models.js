@@ -11,7 +11,7 @@ const search = async (userId, barcode) => {
       Authorization: `Bearer ${token}`
     },
     data: { barcode }
-  });
+  });  
 
   return response;
 };
