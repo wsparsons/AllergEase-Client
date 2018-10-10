@@ -21,7 +21,7 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      barcode: ""
+      barcode: "845561000423"
     };
   }
 
