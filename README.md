@@ -53,6 +53,7 @@ Start the react development server:
 * [Redux](https://redux.js.org/) - A JavaScript library for managing application state
 * [React-Router-Dom](https://www.npmjs.com/package/react-router-dom) - Navigating between components
 * [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
+* [Travis CI](https://travis-ci.org/) - A continuous integration service used to build and test projects 
 * [Semantic UI](https://react.semantic-ui.com/) - The CSS framework used
 
 ## CONTRIBUTING
