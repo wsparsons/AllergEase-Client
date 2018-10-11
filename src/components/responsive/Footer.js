@@ -15,8 +15,7 @@ class Footer extends Component {
           <Grid divided inverted stackable>
             <Grid.Row centered>
               <Grid.Column verticalAlign="middle">
-                <Icon name="barcode" /> AllergEase: Spotting Your Allergen
-                Aliases With Ease
+                <Icon name="barcode" /> AllergEase: Spotting Your Allergies With Ease
               </Grid.Column>
             </Grid.Row>
             <Grid.Row centered columns={3}>
