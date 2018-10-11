@@ -41,6 +41,12 @@ class ProductFound extends Component {
                       />
                     )}
                   </Item.Extra>
+                  {this.props.search.searchResult.valence ? (
+                    <Item.Header>
+                      ALLERGENS FOUND: {this.props.search.searchResult.found}
+                    </Item.Header>
+                  ) : null}
+                  <hr/>
                   <Item.Header>
                     {this.props.search.searchResult.product.name}
                   </Item.Header>
@@ -50,6 +56,7 @@ class ProductFound extends Component {
                   <Item.Description>
                     {this.props.search.searchResult.product.ingredients}
                   </Item.Description>
+                  
                 </Item.Content>
               </Item>
             </Item.Group>
