@@ -31,7 +31,7 @@ class HomepageContainer extends Component {
             </Header>
             <Header size="medium" textAlign="center">
               <Header.Content id="homepageHeaderSubheader">
-                Spotting Your Allergen Aliases With Ease
+                Spotting Your Allergies With Ease
               </Header.Content>
             </Header>
           </Container>
