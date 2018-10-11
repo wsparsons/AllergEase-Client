@@ -22,7 +22,7 @@ It makes shopping easier by supplementing a shopper’s perusal of product ingre
 ![profile](https://snag.gy/BSbOVy.jpg "Profile page")
 
 * SEARCH
-![search](https://snag.gy/vR4sic.jpg "Search page")
+![search](https://snag.gy/MO6Iki.jpg "Search page")
 
 ### CURRENT FEATURES
 * Signup { Name, Email, Password }
