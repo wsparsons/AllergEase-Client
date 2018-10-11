@@ -8,7 +8,8 @@ import {
 let initialState = {
   searchResult: {
     valence: "",
-    product: {}
+    product: {},
+    found: ""
   },
   displayProduct: false,
   showSearchError: false,
