@@ -43,14 +43,14 @@ The backend can be found at:
 * Fork and clone this repository
 * `npm install`
 
-### DEPLOYMENT
-This project has been deployed on Surge at: 
-* https://allergease.surge.sh
-
 ### INSTALLING
 Make sure the database and backend are created first!
 Start the react development server:
 * `npm start`
+
+### DEPLOYMENT
+This project has been deployed on Surge at: 
+* https://allergease.surge.sh
 
 ## BUILD WITH
 * [React](https://www.reactjs.org/) - A JavaScript library for building user interfaces
