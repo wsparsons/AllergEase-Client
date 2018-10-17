@@ -26,10 +26,10 @@ It makes shopping easier by supplementing a shopper’s perusal of product ingre
 
 ### CURRENT FEATURES
 * Signup { Name, Email, Password }
-* Login { Email, Password }
-* Get a list of the allergens and aliases
-* Add allergen(s) to user's list
-* Submit packaged food barcode to get thumbs up or thumbs down based on user's allergen(s)
+* Login { Email, Password } { Testing - login: test@test.com , password: 1234 }
+* Allergens { Get a list of the allergens and aliases }
+* Profile { Add allergen(s) to user's list }
+* Search { Submit packaged food barcode numbers to get thumbs up or thumbs down based on user's allergen(s) }
 * Logout
 
 ## GETTING STARTED
